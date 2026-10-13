@@ -48,27 +48,24 @@ export default function NewsSection() {
           </div>
         </div>
 
-        {/* View All link above cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-end mb-3">
-          <div className="lg:col-span-3 flex justify-end pr-2">
-            <a 
-              href="#news-all" 
-              className="text-xs sm:text-sm font-medium text-gray-700 hover:text-brand-900 underline decoration-1 transition-colors"
-            >
-              View All &gt;&gt;
-            </a>
-          </div>
-          <div className="hidden lg:block"></div>
-        </div>
-
-        {/* Main Content: Left Carousel Cards + Right Tall Hero Banner */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
+        {/* Main Content: Left Column (View All + Cards + Dots) & Right Column (Image matching full height) */}
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-stretch">
           
           {/* Left: News Cards Slider (takes 3 columns out of 4) */}
-          <div className="lg:col-span-3 relative flex flex-col justify-between">
+          <div className="lg:col-span-3 flex flex-col justify-between">
             
+            {/* View All link directly aligned at top of left column */}
+            <div className="flex justify-end pr-2 mb-2 sm:mb-3">
+              <a 
+                href="#news-all" 
+                className="text-xs sm:text-sm font-medium text-gray-700 hover:text-brand-900 underline decoration-1 transition-colors"
+              >
+                View All &gt;&gt;
+              </a>
+            </div>
+
             {/* Slider wrapper with left & right navigation arrows */}
-            <div className="relative flex items-center">
+            <div className="relative flex items-center flex-1">
               
               {/* Left Arrow Button */}
               <button
@@ -79,12 +76,12 @@ export default function NewsSection() {
                 <ChevronLeft className="w-6 h-6 stroke-[1.5]" />
               </button>
 
-              {/* Cards row (3 cards on desktop) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 w-full">
+              {/* Cards row (3 cards on desktop with increased height) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 w-full items-stretch">
                 {newsItems.slice(currentSlide, currentSlide + 3).map((item, idx) => (
                   <div
                     key={item.id + idx}
-                    className="bg-white border border-gray-200 rounded-none p-4 sm:p-5 flex flex-col justify-between hover:shadow-md transition-shadow group cursor-pointer min-h-[340px]"
+                    className="bg-white border border-gray-200/80 rounded-none p-4 sm:p-5 flex flex-col justify-between hover:shadow-md transition-shadow group cursor-pointer min-h-[380px] sm:min-h-[410px] lg:min-h-[430px]"
                   >
                     {/* Top Square Product / Model Image */}
                     <div className="aspect-square w-full mb-4 overflow-hidden flex items-center justify-center bg-gray-50/50">
@@ -97,7 +94,7 @@ export default function NewsSection() {
                     </div>
 
                     {/* Bottom Title text */}
-                    <div className="text-center pt-2">
+                    <div className="text-center pt-2 flex-1 flex items-center justify-center">
                       <h4 className="text-xs sm:text-sm font-normal text-gray-800 leading-snug group-hover:text-brand-900 transition-colors line-clamp-3">
                         {item.title}
                       </h4>
@@ -118,16 +115,16 @@ export default function NewsSection() {
             </div>
 
             {/* Slider Indicator (Black Dash + Dot below cards) */}
-            <div className="flex items-center justify-center gap-1.5 mt-6">
+            <div className="flex items-center justify-center gap-1.5 mt-5">
               <span className={`h-1 rounded-full transition-all ${currentSlide === 0 ? 'w-5 bg-black' : 'w-1.5 bg-gray-300'}`}></span>
               <span className={`h-1 rounded-full transition-all ${currentSlide > 0 ? 'w-5 bg-black' : 'w-1.5 bg-gray-300'}`}></span>
             </div>
 
           </div>
 
-          {/* Right: Tall News Feature Banner (1 column on desktop) */}
-          <div className="lg:col-span-1">
-            <div className="relative w-full h-[360px] sm:h-[400px] lg:h-[385px] overflow-hidden shadow-sm group cursor-pointer bg-gray-900 rounded-xs">
+          {/* Right: Tall News Feature Banner (Spans full height from View All to Dots) */}
+          <div className="lg:col-span-1 flex flex-col">
+            <div className="relative w-full h-full min-h-[380px] lg:min-h-0 overflow-hidden shadow-sm group cursor-pointer bg-gray-900 rounded-none flex-1">
               {/* Background Image (HD 600x900) */}
               <img
                 src="/images/news/news_tall_card.jpg"
