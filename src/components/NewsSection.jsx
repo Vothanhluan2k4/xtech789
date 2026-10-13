@@ -67,49 +67,51 @@ export default function NewsSection() {
             {/* Slider wrapper with left & right navigation arrows */}
             <div className="relative flex items-center flex-1">
               
-              {/* Left Arrow Button */}
+              {/* Left Arrow Button with dedicated width */}
               <button
                 onClick={handlePrev}
                 aria-label="Previous article"
-                className="absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-20 text-gray-400 hover:text-gray-800 transition-colors p-1"
+                className="absolute left-0 sm:left-1 lg:left-1.5 top-1/2 -translate-y-1/2 z-20 text-gray-400 hover:text-gray-800 transition-colors p-1.5 sm:p-2 cursor-pointer rounded-full hover:bg-gray-100/60"
               >
-                <ChevronLeft className="w-6 h-6 stroke-[1.5]" />
+                <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 stroke-[1.5]" />
               </button>
 
-              {/* Cards row (3 cards on desktop with increased height) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 w-full items-stretch">
-                {newsItems.slice(currentSlide, currentSlide + 3).map((item, idx) => (
-                  <div
-                    key={item.id + idx}
-                    className="bg-white border border-gray-200/80 rounded-none p-4 sm:p-5 flex flex-col justify-between hover:shadow-md transition-shadow group cursor-pointer min-h-[380px] sm:min-h-[410px] lg:min-h-[430px]"
-                  >
-                    {/* Top Square Product / Model Image */}
-                    <div className="aspect-square w-full mb-4 overflow-hidden flex items-center justify-center bg-gray-50/50">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="w-full h-full object-cover object-center group-hover:scale-103 transition-transform duration-300"
-                        loading="lazy"
-                      />
-                    </div>
+              {/* Cards row with horizontal padding so < and > have ample room */}
+              <div className="w-full px-6 sm:px-8 lg:px-10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5 sm:gap-4 lg:gap-5 w-full items-stretch">
+                  {newsItems.slice(currentSlide, currentSlide + 3).map((item, idx) => (
+                    <div
+                      key={item.id + idx}
+                      className="max-w-[260px] sm:max-w-[270px] mx-auto w-full bg-white border border-gray-200/80 rounded-none p-3.5 sm:p-4 flex flex-col justify-between hover:shadow-md transition-shadow group cursor-pointer min-h-[360px] sm:min-h-[390px] lg:min-h-[415px]"
+                    >
+                      {/* Top Square Product / Model Image */}
+                      <div className="aspect-square w-full mb-3.5 overflow-hidden flex items-center justify-center bg-gray-50/50">
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="w-full h-full object-cover object-center group-hover:scale-103 transition-transform duration-300"
+                          loading="lazy"
+                        />
+                      </div>
 
-                    {/* Bottom Title text */}
-                    <div className="text-center pt-2 flex-1 flex items-center justify-center">
-                      <h4 className="text-xs sm:text-sm font-normal text-gray-800 leading-snug group-hover:text-brand-900 transition-colors line-clamp-3">
-                        {item.title}
-                      </h4>
+                      {/* Bottom Title text */}
+                      <div className="text-center pt-1 pb-1 flex-1 flex items-center justify-center">
+                        <h4 className="text-xs sm:text-sm font-normal text-gray-800 leading-snug group-hover:text-brand-900 transition-colors line-clamp-3">
+                          {item.title}
+                        </h4>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
 
-              {/* Right Arrow Button */}
+              {/* Right Arrow Button with dedicated width */}
               <button
                 onClick={handleNext}
                 aria-label="Next article"
-                className="absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-20 text-gray-400 hover:text-gray-800 transition-colors p-1"
+                className="absolute right-0 sm:right-1 lg:right-1.5 top-1/2 -translate-y-1/2 z-20 text-gray-400 hover:text-gray-800 transition-colors p-1.5 sm:p-2 cursor-pointer rounded-full hover:bg-gray-100/60"
               >
-                <ChevronRight className="w-6 h-6 stroke-[1.5]" />
+                <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 stroke-[1.5]" />
               </button>
 
             </div>
