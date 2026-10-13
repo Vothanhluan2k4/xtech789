@@ -22,3 +22,4 @@ Nu Skin E-Commerce Web Application built with React, Vite, and Tailwind CSS.
 npm install
 npm run dev
 ```
+

@@ -53,17 +53,6 @@ export default function PopularProductsSection({
       image: "/images/popular_product_3.png",
       description: "Advanced cellular renewal essence nourishing deeply from within.",
       specifications: [{ key: "Origin", value: "USA" }]
-    },
-    {
-      id: 4,
-      name: "Pure Pineapple",
-      category: "AGELOC",
-      price: 14.00,
-      originalPrice: 35.00,
-      isSale: true,
-      image: "/images/popular_product_3.png",
-      description: "Advanced cellular renewal essence nourishing deeply from within.",
-      specifications: [{ key: "Origin", value: "USA" }]
     }
   ];
 
@@ -83,25 +72,25 @@ export default function PopularProductsSection({
         {/* Outer light-grayish container matching reference image */}
         <div className="bg-[#F3F7F8] p-4 sm:p-6 lg:p-7 border border-gray-200/50 relative">
           
-          <div className="flex flex-col lg:flex-row gap-4 sm:gap-5 items-stretch">
+          <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 items-stretch">
             
-            {/* Left Feature Card: Pure White Card with Teal Brush Strokes */}
-            <div className="w-full lg:w-[230px] xl:w-[245px] flex-shrink-0 bg-white p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden border border-gray-100/80 shadow-xs min-h-[320px] lg:min-h-[390px]">
+            {/* Left Feature Card: Pure White Card with Teal Brush Strokes (Larger & Taller) */}
+            <div className="w-full lg:w-[270px] xl:w-[295px] flex-shrink-0 bg-white p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden border border-gray-100 shadow-xs min-h-[340px] lg:min-h-[420px]">
               {/* Teal Brush Strokes matching exact Figma design */}
-              <svg className="absolute top-0 right-0 w-full h-full pointer-events-none" viewBox="0 0 200 340" fill="none" preserveAspectRatio="none">
+              <svg className="absolute top-0 right-0 w-full h-full pointer-events-none" viewBox="0 0 260 420" fill="none" preserveAspectRatio="none">
                 {/* 4 Strong Teal Rays radiating from right edge */}
-                <line x1="95" y1="38" x2="185" y2="52" stroke="#00A887" strokeWidth="6" strokeLinecap="round" />
-                <line x1="88" y1="95" x2="180" y2="92" stroke="#00A887" strokeWidth="6" strokeLinecap="round" />
-                <line x1="98" y1="150" x2="190" y2="120" stroke="#00A887" strokeWidth="6" strokeLinecap="round" />
-                <line x1="130" y1="195" x2="188" y2="150" stroke="#00A887" strokeWidth="6" strokeLinecap="round" />
+                <line x1="120" y1="45" x2="245" y2="65" stroke="#00A887" strokeWidth="7" strokeLinecap="round" />
+                <line x1="110" y1="120" x2="240" y2="118" stroke="#00A887" strokeWidth="7" strokeLinecap="round" />
+                <line x1="125" y1="195" x2="250" y2="155" stroke="#00A887" strokeWidth="7" strokeLinecap="round" />
+                <line x1="165" y1="250" x2="248" y2="195" stroke="#00A887" strokeWidth="7" strokeLinecap="round" />
                 {/* Faint Mint Rays at bottom-left */}
-                <line x1="0" y1="210" x2="80" y2="185" stroke="rgba(0, 168, 135, 0.12)" strokeWidth="10" strokeLinecap="round" />
-                <line x1="0" y1="295" x2="95" y2="275" stroke="rgba(0, 168, 135, 0.12)" strokeWidth="10" strokeLinecap="round" />
+                <line x1="0" y1="270" x2="110" y2="235" stroke="rgba(0, 168, 135, 0.12)" strokeWidth="12" strokeLinecap="round" />
+                <line x1="0" y1="380" x2="130" y2="350" stroke="rgba(0, 168, 135, 0.12)" strokeWidth="12" strokeLinecap="round" />
               </svg>
 
               {/* Title */}
-              <div className="relative z-10 pt-2">
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 leading-snug tracking-tight">
+              <div className="relative z-10 pt-1">
+                <h3 className="text-2xl sm:text-3xl lg:text-[32px] font-bold text-gray-900 leading-[1.2] tracking-tight">
                   Find out<br />
                   what<br />
                   everyone's<br />
@@ -111,17 +100,17 @@ export default function PopularProductsSection({
               </div>
 
               {/* Link */}
-              <div className="relative z-10 pt-6">
+              <div className="relative z-10 pt-8 sm:pt-10">
                 <button 
                   onClick={() => onSelectProduct(popularList[0])}
-                  className="text-xs sm:text-sm font-normal text-gray-600 hover:text-black transition-colors"
+                  className="text-xs sm:text-sm font-medium text-gray-600 hover:text-black transition-colors text-left"
                 >
                   Browse our best
                 </button>
               </div>
             </div>
 
-            {/* Right Area: Tabs + Product Cards Carousel */}
+            {/* Right Area: Tabs + Product Cards (Strictly 3 Products) */}
             <div className="flex-1 min-w-0 flex flex-col justify-between">
               
               {/* Top Bar: Tabs (DESCRIPTION with gold top line & SPECIFICATIONS) + View All >> */}
@@ -160,32 +149,37 @@ export default function PopularProductsSection({
                 </button>
               </div>
 
-              {/* Product Cards Carousel Track */}
+              {/* Product Cards Track with Chevrons */}
               <div className="relative flex-1 flex flex-col justify-between">
                 
                 {/* Chevrons */}
-                <div className="hidden lg:flex items-center justify-center absolute -left-3 top-1/2 -translate-y-1/2 z-20 text-gray-400 hover:text-gray-700 cursor-pointer p-1">
+                <button 
+                  type="button"
+                  className="hidden lg:flex items-center justify-center absolute -left-3.5 top-1/2 -translate-y-1/2 z-20 text-gray-400 hover:text-gray-800 transition-colors cursor-pointer p-1"
+                  aria-label="Previous"
+                >
                   <ChevronLeft className="w-5 h-5 stroke-[1.5]" />
-                </div>
-                <div className="hidden lg:flex items-center justify-center absolute right-1 top-1/2 -translate-y-1/2 z-20 text-gray-400 hover:text-gray-700 cursor-pointer p-1">
+                </button>
+                <button 
+                  type="button"
+                  className="hidden lg:flex items-center justify-center absolute -right-2 top-1/2 -translate-y-1/2 z-20 text-gray-400 hover:text-gray-800 transition-colors cursor-pointer p-1"
+                  aria-label="Next"
+                >
                   <ChevronRight className="w-5 h-5 stroke-[1.5]" />
-                </div>
+                </button>
 
-                {/* Grid Layout: 3 full product cards + 4th card partially visible */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 items-stretch">
-                  {popularList.map((product, idx) => {
+                {/* Grid Layout: Strictly 3 product cards matching reference */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4 lg:gap-5 items-stretch">
+                  {popularList.map((product) => {
                     const isAdded = addedIds.includes(product.id);
-                    const isFourthPeek = idx === 3;
                     return (
                       <div
                         key={product.id}
                         onClick={() => onSelectProduct(product)}
-                        className={`bg-white border border-gray-100 rounded-none overflow-hidden hover:shadow-md transition-shadow flex flex-col justify-between group cursor-pointer relative ${
-                          isFourthPeek ? 'hidden xl:flex opacity-90' : 'flex'
-                        }`}
+                        className="bg-white border border-gray-100 rounded-none overflow-hidden hover:shadow-md transition-shadow flex flex-col justify-between group cursor-pointer relative"
                       >
-                        {/* Product Image (contains clean gold badge and green SALE tag) */}
-                        <div className="relative h-44 sm:h-48 bg-white flex items-center justify-center p-2 overflow-hidden">
+                        {/* Product Image */}
+                        <div className="relative h-48 sm:h-52 lg:h-56 bg-white flex items-center justify-center p-3 overflow-hidden">
                           <img
                             src={product.image}
                             alt={product.name}
@@ -199,7 +193,7 @@ export default function PopularProductsSection({
                               e.stopPropagation();
                               onToggleWishlist && onToggleWishlist(product);
                             }}
-                            className="absolute bottom-2 right-2 z-10 p-1.5 rounded-full bg-white/90 hover:bg-white shadow-xs text-gray-400 hover:text-rose-500 transition-colors"
+                            className="absolute bottom-2.5 right-2.5 z-10 p-1.5 rounded-full bg-white/90 hover:bg-white shadow-xs text-gray-400 hover:text-rose-500 transition-colors"
                             title={wishlistIds.includes(product.id) ? "Remove from wishlist" : "Add to wishlist"}
                           >
                             <Heart className={`w-3.5 h-3.5 ${wishlistIds.includes(product.id) ? 'fill-rose-500 text-rose-500' : ''}`} />
@@ -207,17 +201,17 @@ export default function PopularProductsSection({
                         </div>
 
                         {/* Product Info */}
-                        <div className="p-3 text-center border-t border-gray-50 flex-1 flex flex-col justify-between">
+                        <div className="p-3.5 sm:p-4 text-center border-t border-gray-50 flex-1 flex flex-col justify-between">
                           <div>
-                            <p className="text-[10px] font-medium text-gray-400 uppercase tracking-widest mb-0.5">
+                            <p className="text-[10px] sm:text-[11px] font-medium text-gray-400 uppercase tracking-widest mb-1">
                               {product.category}
                             </p>
-                            <h4 className="text-xs sm:text-sm font-normal text-gray-900 mb-1.5 line-clamp-1">
+                            <h4 className="text-xs sm:text-sm font-medium text-gray-900 mb-2 line-clamp-1">
                               {product.name}
                             </h4>
 
                             {/* Pricing: Gold $14.00, Gray strikethrough $35.00 */}
-                            <div className="flex items-center justify-center gap-1.5 mb-2.5">
+                            <div className="flex items-center justify-center gap-2 mb-3">
                               <span className="text-xs sm:text-sm font-bold text-[#D4A373]">
                                 ${product.price.toFixed(2)}
                               </span>
@@ -246,9 +240,10 @@ export default function PopularProductsSection({
                   })}
                 </div>
 
-                {/* Carousel bottom indicator: small black pill centered */}
-                <div className="flex items-center justify-center mt-4">
+                {/* Carousel bottom indicator: small black pill and gray dot centered */}
+                <div className="flex items-center justify-center gap-1.5 mt-5">
                   <div className="w-6 h-1 bg-gray-900 rounded-full"></div>
+                  <div className="w-1.5 h-1.5 bg-gray-300 rounded-full"></div>
                 </div>
 
               </div>
