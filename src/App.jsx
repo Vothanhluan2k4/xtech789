@@ -18,32 +18,96 @@ import Toast from './components/Toast';
 import { products } from './data/products';
 
 export default function App() {
-  const [currentView, setCurrentView] = useState('home'); // 'home' | 'shop' | 'detail' | 'news'
-  const [selectedProduct, setSelectedProduct] = useState(products[0]);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [cart, setCart] = useState([]);
+  const [currentView, setCurrentView] = useState(() => {
+    try {
+      const savedView = sessionStorage.getItem('xtech_current_view');
+      if (['home', 'shop', 'detail', 'news'].includes(savedView)) {
+        return savedView;
+      }
+    } catch (e) {}
+    return 'home';
+  }); // 'home' | 'shop' | 'detail' | 'news'
+
+  const [selectedProduct, setSelectedProduct] = useState(() => {
+    try {
+      const savedId = sessionStorage.getItem('xtech_selected_product_id');
+      if (savedId) {
+        const found = products.find((p) => String(p.id) === String(savedId));
+        if (found) return found;
+      }
+    } catch (e) {}
+    return products[0];
+  });
+
+  const [searchTerm, setSearchTerm] = useState(() => {
+    try {
+      return sessionStorage.getItem('xtech_search_term') || '';
+    } catch (e) {}
+    return '';
+  });
+
+  const [cart, setCart] = useState(() => {
+    try {
+      const sessionData = sessionStorage.getItem('xtech_cart');
+      if (sessionData) return JSON.parse(sessionData);
+      const localData = localStorage.getItem('xtech_cart');
+      if (localData) return JSON.parse(localData);
+    } catch (e) {
+      console.error('Error loading cart from storage', e);
+    }
+    return [];
+  });
+
   const [wishlist, setWishlist] = useState(() => {
     try {
-      const saved = localStorage.getItem('xtech_wishlist');
-      return saved ? JSON.parse(saved) : [];
+      const sessionData = sessionStorage.getItem('xtech_wishlist');
+      if (sessionData) return JSON.parse(sessionData);
+      const localData = localStorage.getItem('xtech_wishlist');
+      if (localData) return JSON.parse(localData);
     } catch (e) {
-      return [];
+      console.error('Error loading wishlist from storage', e);
     }
+    return [];
   });
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isWishlistOpen, setIsWishlistOpen] = useState(false);
   const [toast, setToast] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Sync wishlist to localStorage
+  // Sync cart to sessionStorage and localStorage
   React.useEffect(() => {
     try {
+      sessionStorage.setItem('xtech_cart', JSON.stringify(cart));
+      localStorage.setItem('xtech_cart', JSON.stringify(cart));
+    } catch (e) {
+      console.error('Failed to save cart', e);
+    }
+  }, [cart]);
+
+  // Sync wishlist to sessionStorage and localStorage
+  React.useEffect(() => {
+    try {
+      sessionStorage.setItem('xtech_wishlist', JSON.stringify(wishlist));
       localStorage.setItem('xtech_wishlist', JSON.stringify(wishlist));
     } catch (e) {
       console.error('Failed to save wishlist', e);
     }
   }, [wishlist]);
+
+  // Sync current view & navigation context to sessionStorage
+  React.useEffect(() => {
+    try {
+      sessionStorage.setItem('xtech_current_view', currentView);
+      if (selectedProduct?.id) {
+        sessionStorage.setItem('xtech_selected_product_id', String(selectedProduct.id));
+      }
+      sessionStorage.setItem('xtech_search_term', searchTerm);
+    } catch (e) {
+      console.error('Failed to save view state', e);
+    }
+  }, [currentView, selectedProduct, searchTerm]);
 
   // Detect scroll to trigger sticky floating elevation effect
   React.useEffect(() => {
