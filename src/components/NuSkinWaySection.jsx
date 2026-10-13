@@ -15,7 +15,7 @@ export default function NuSkinWaySection() {
         </div>
 
         {/* Top Stats Box (Single border card matching screenshot) */}
-        <div className="bg-white border border-gray-200 rounded-none p-6 sm:p-8 lg:p-10 mb-10 sm:mb-14 lg:mb-16 flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div className="bg-white border border-gray-200 rounded-none p-6 sm:p-8 lg:p-10 mb-6 sm:mb-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
           {/* Left Title */}
           <div>
             <h3 className="text-xl sm:text-2xl lg:text-3xl font-normal text-gray-800 leading-snug">
@@ -65,10 +65,10 @@ export default function NuSkinWaySection() {
           </div>
         </div>
 
-        {/* Story 1: Being a Force for Good (Left image height increased by 15-20px, Right content at start with top spacing) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10 items-start mb-10 sm:mb-14 lg:mb-16 bg-white">
-          {/* Left Image (Height increased by 15-20px) */}
-          <div className="w-full h-[255px] sm:h-[295px] md:h-[320px] lg:h-[340px] overflow-hidden">
+        {/* Story 1: Being a Force for Good (Left image, Right #F7F7F7 block, gap-0 matching screenshot) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 overflow-hidden mb-6 sm:mb-8 bg-[#F7F7F7] border border-gray-100/60 shadow-xs">
+          {/* Left Image */}
+          <div className="w-full h-[280px] sm:h-[320px] md:h-auto min-h-[280px] md:min-h-[350px]">
             <img
               src="/images/force_for_good_exact.png"
               alt="Being a Force for Good"
@@ -76,12 +76,12 @@ export default function NuSkinWaySection() {
             />
           </div>
 
-          {/* Right Text Block (Content aligned to start with top spacing) */}
-          <div className="pt-2 sm:pt-4 md:pt-6 lg:pt-8 pr-4 sm:pr-8 flex flex-col justify-start items-start bg-white">
-            <h3 className="text-2xl sm:text-3xl lg:text-[32px] font-normal text-gray-900 mb-3 sm:mb-4 tracking-tight">
+          {/* Right Text Block (Background #F7F7F7 exactly matching reference screenshot) */}
+          <div className="p-8 sm:p-10 md:p-12 lg:p-14 xl:p-16 flex flex-col justify-center bg-[#F7F7F7]">
+            <h3 className="text-2xl sm:text-3xl font-normal text-gray-900 mb-3 sm:mb-4 tracking-tight">
               Being a Force for Good
             </h3>
-            <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6 font-normal max-w-[560px]">
+            <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6 font-normal max-w-[540px]">
               Some call it corporate social responsibility. We call it our purpose. Together we're engaged in initiatives worldwide—nourishing thousands of hungry children, funding pediatric health and wellness services, or striving for a more sustainable future. And sometimes, we're simply taking meaningful steps to improve our local communities. Whatever we do, we believe changing the world begins with a single action.
             </p>
             <div>
@@ -95,14 +95,14 @@ export default function NuSkinWaySection() {
           </div>
         </div>
 
-        {/* Story 2: Nature + Science (Left content at start with top spacing, Right image height increased by 15-20px) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10 items-start bg-white">
-          {/* Left Text Block (Content aligned to start with top spacing) */}
-          <div className="order-2 md:order-1 pt-2 sm:pt-4 md:pt-6 lg:pt-8 pr-4 sm:pr-8 flex flex-col justify-start items-start bg-white">
-            <h3 className="text-2xl sm:text-3xl lg:text-[32px] font-normal text-gray-900 mb-3 sm:mb-4 tracking-tight">
+        {/* Story 2: Nature + Science (Left #F7F7F7 block, Right image, gap-0 matching screenshot) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 overflow-hidden bg-[#F7F7F7] border border-gray-100/60 shadow-xs">
+          {/* Left Text Block (Background #F7F7F7 exactly matching reference screenshot) */}
+          <div className="order-2 md:order-1 p-8 sm:p-10 md:p-12 lg:p-14 xl:p-16 flex flex-col justify-center bg-[#F7F7F7]">
+            <h3 className="text-2xl sm:text-3xl font-normal text-gray-900 mb-3 sm:mb-4 tracking-tight">
               Nature + Science
             </h3>
-            <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6 font-normal max-w-[560px]">
+            <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6 font-normal max-w-[540px]">
               Capturing the best in nature to bring you the best results is our personal mission. We combine powerful ingredients with innovative science and technology. The result? World-class products that deliver real benefits. And even though we've spent more than 30 years researching aging at the genetic level, Mother Nature continually inspires us to push the boundaries of inquiry and innovation. We bottle what's best and bring it right to your door.
             </p>
             <div>
@@ -115,8 +115,8 @@ export default function NuSkinWaySection() {
             </div>
           </div>
 
-          {/* Right Image (Height increased by 15-20px) */}
-          <div className="order-1 md:order-2 w-full h-[255px] sm:h-[295px] md:h-[320px] lg:h-[340px] overflow-hidden">
+          {/* Right Image */}
+          <div className="order-1 md:order-2 w-full h-[280px] sm:h-[320px] md:h-auto min-h-[280px] md:min-h-[350px]">
             <img
               src="/images/nature_science_exact.png"
               alt="Nature + Science"
