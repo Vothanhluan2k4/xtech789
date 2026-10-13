@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Star, ShoppingCart, Heart, Share2, Check, ArrowLeft, ShieldCheck, Truck, RotateCcw } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Star, ShoppingCart, Heart, Share2, Check, ArrowLeft, ShieldCheck, Truck, RotateCcw, ChevronLeft, ChevronRight } from 'lucide-react';
 import { products } from '../data/products';
 
 export default function DetailView({
@@ -14,6 +14,18 @@ export default function DetailView({
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState('specifications');
   const [isAdded, setIsAdded] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+
+  // Reset selected image whenever active product changes
+  useEffect(() => {
+    setSelectedImageIndex(0);
+  }, [product.id]);
+
+  const galleryImages = (product.images && product.images.length > 0)
+    ? product.images
+    : [product.image];
+
+  const currentMainImage = galleryImages[selectedImageIndex] || product.image;
 
   const isWishlisted = wishlistIds.includes(product.id);
 
@@ -88,14 +100,52 @@ export default function DetailView({
         <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden p-6 sm:p-8 lg:p-10 mb-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-start">
             
-            {/* Left: Product Image */}
+            {/* Left: Product Image & Interactive Thumbnails */}
             <div className="space-y-4">
-              <div className="relative rounded-xl overflow-hidden bg-white border border-gray-100 aspect-square p-6 flex items-center justify-center">
+              <div className="relative rounded-xl overflow-hidden bg-white border border-gray-100 aspect-square p-6 flex items-center justify-center group shadow-xs">
                 <img
-                  src={product.image}
-                  alt={product.name}
-                  className="max-h-full max-w-full object-contain"
+                  src={currentMainImage}
+                  alt={`${product.name} view ${selectedImageIndex + 1}`}
+                  className="max-h-full max-w-full object-contain transition-all duration-300"
                 />
+
+                {/* Previous Image Chevron */}
+                {galleryImages.length > 1 && (
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedImageIndex((prev) => (prev > 0 ? prev - 1 : galleryImages.length - 1));
+                    }}
+                    className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-700 hover:text-black p-2 rounded-full shadow-md border border-gray-200 transition-all cursor-pointer opacity-80 hover:opacity-100"
+                    aria-label="Previous image"
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                  </button>
+                )}
+
+                {/* Next Image Chevron */}
+                {galleryImages.length > 1 && (
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedImageIndex((prev) => (prev < galleryImages.length - 1 ? prev + 1 : 0));
+                    }}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-700 hover:text-black p-2 rounded-full shadow-md border border-gray-200 transition-all cursor-pointer opacity-80 hover:opacity-100"
+                    aria-label="Next image"
+                  >
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
+                )}
+
+                {/* Image counter pill */}
+                {galleryImages.length > 1 && (
+                  <span className="absolute bottom-3 right-3 bg-black/60 text-white text-[11px] font-medium px-2.5 py-0.5 rounded-full backdrop-blur-xs select-none">
+                    {selectedImageIndex + 1} / {galleryImages.length}
+                  </span>
+                )}
+
                 {product.isSale && (
                   <span className="absolute top-4 left-4 bg-[#7cb342] text-white text-xs font-bold px-3 py-1 rounded uppercase tracking-wider shadow-xs">
                     SALE
@@ -108,19 +158,26 @@ export default function DetailView({
                 )}
               </div>
 
-              {/* Thumbnails row */}
+              {/* Thumbnails row: interactive clicking to switch main image */}
               <div className="grid grid-cols-4 gap-3">
-                {[1, 2, 3, 4].map((i) => (
-                  <div 
-                    key={i} 
-                    className="aspect-square rounded-lg border-2 border-gray-200 p-1.5 bg-white overflow-hidden cursor-pointer hover:border-[#511B57] transition-colors flex items-center justify-center"
+                {galleryImages.map((imgSrc, idx) => (
+                  <button 
+                    key={idx} 
+                    type="button"
+                    onClick={() => setSelectedImageIndex(idx)}
+                    className={`aspect-square rounded-lg border-2 p-1.5 bg-white overflow-hidden cursor-pointer transition-all flex items-center justify-center ${
+                      selectedImageIndex === idx
+                        ? 'border-[#511B57] ring-2 ring-purple-300 shadow-sm scale-102'
+                        : 'border-gray-200 opacity-70 hover:opacity-100 hover:border-gray-400'
+                    }`}
+                    aria-label={`View image ${idx + 1}`}
                   >
                     <img 
-                      src={product.image} 
-                      alt="Thumbnail" 
+                      src={imgSrc} 
+                      alt={`${product.name} thumbnail ${idx + 1}`} 
                       className="max-h-full max-w-full object-contain" 
                     />
-                  </div>
+                  </button>
                 ))}
               </div>
             </div>

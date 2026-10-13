@@ -1,13 +1,19 @@
 export const products = [
   {
     id: 1,
-    name: "ageLOC® Pure Pineapple",
+    name: "ageLOC® Pure Pineapple Y-Span",
     category: "AGELOC",
     price: 14.00,
     originalPrice: 35.00,
     isSale: false,
     isLoyalty: true,
     image: "/images/popular_product_1.png",
+    images: [
+      "/images/popular_product_1.png",
+      "/images/pure_pineapple_bottle_hd.png",
+      "/images/product-1.jpg",
+      "/images/hd/vitamins_hd.jpg"
+    ],
     rating: 5,
     tag: "Best Seller",
     description: "ageLOC Y-Span dietary supplement infused with refreshing natural pineapple flavor, supporting optimal cellular rejuvenation and full-body vitality.",
@@ -20,13 +26,19 @@ export const products = [
   },
   {
     id: 2,
-    name: "AP24® Whitening Fluoride Toothpaste",
+    name: "AP24® Whitening Toothpaste",
     category: "NU SKIN CARE",
     price: 14.00,
     originalPrice: 35.00,
     isSale: true,
     isLoyalty: true,
     image: "/images/popular_product_2.png",
+    images: [
+      "/images/popular_product_2.png",
+      "/images/pure_pineapple_tube_hd.png",
+      "/images/product-2.jpg",
+      "/images/product-7.jpg"
+    ],
     rating: 5,
     tag: "Best Seller",
     description: "AP-24 whitening fluoride toothpaste gently brightens teeth without harmful peroxides, removes plaque, and provides 24-hour oral protection with refreshing vanilla mint flavor.",
@@ -39,32 +51,19 @@ export const products = [
   },
   {
     id: 3,
-    name: "ageLOC® Y-Span Youth Preservation",
-    category: "AGELOC",
-    price: 14.00,
-    originalPrice: 35.00,
-    isSale: true,
-    isLoyalty: true,
-    image: "/images/popular_product_3.png",
-    rating: 5,
-    tag: "Reasonable Price",
-    description: "Nu Skin's most advanced anti-aging supplement, scientifically formulated to influence gene expression and help you live your most vibrant, youthful years.",
-    specifications: [
-      { key: "Packaging", value: "Bottle of 120 softgels" },
-      { key: "Origin", value: "USA" },
-      { key: "Target Audience", value: "Adults aged 18 and older" },
-      { key: "Shelf Life", value: "24 months from manufacture date" }
-    ]
-  },
-  {
-    id: 4,
-    name: "ageLOC® LumiSpa® iO System",
+    name: "ageLOC® LumiSpa® iO Cleanser",
     category: "DEVICES",
     price: 29.99,
     originalPrice: 199.00,
     isSale: true,
-    isLoyalty: false,
-    image: "/images/hd/lumispa_clean_woman_hd.png",
+    isLoyalty: true,
+    image: "/images/popular_product_3.png",
+    images: [
+      "/images/popular_product_3.png",
+      "/images/hd/lumispa_1.jpg",
+      "/images/hd/lumispa_2.png",
+      "/images/hd/lumispa_clean_woman_hd.png"
+    ],
     rating: 5,
     tag: "Award Winner",
     description: "Smart facial cleansing & skin treatment device featuring counter-rotating Micropulse oscillation and IoT connectivity via Nu Skin Vera app, delivering deep cleansing in just 2 minutes.",
@@ -76,14 +75,20 @@ export const products = [
     ]
   },
   {
-    id: 5,
+    id: 4,
     name: "ageLOC® Galvanic Spa® Facial System",
     category: "DEVICES",
     price: 299.00,
     originalPrice: 389.00,
     isSale: true,
     isLoyalty: true,
-    image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80",
+    image: "/images/hd/lumispa_clean_woman_hd.png",
+    images: [
+      "/images/hd/lumispa_clean_woman_hd.png",
+      "/images/hd/lumispa_3.png",
+      "/images/product-3.jpg",
+      "/images/hd/skincare_glow.jpg"
+    ],
     rating: 4.9,
     tag: "Editor's Choice",
     description: "Compact microcurrent spa device using self-adjusting galvanic currents to lift, firm, smooth wrinkles, and drive anti-aging actives deep into the skin.",
@@ -94,14 +99,20 @@ export const products = [
     ]
   },
   {
-    id: 6,
+    id: 5,
     name: "ageLOC® Boost™ Microcurrent Device",
     category: "DEVICES",
     price: 249.00,
     originalPrice: 310.00,
     isSale: false,
     isLoyalty: true,
-    image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80",
+    image: "/images/product-5.jpg",
+    images: [
+      "/images/product-5.jpg",
+      "/images/hd/cosmetic_jar.jpg",
+      "/images/hd/beauty_mirror.jpg",
+      "/images/product-4.jpg"
+    ],
     rating: 4.9,
     tag: "New Arrival",
     description: "Breakthrough variable pulse microcurrent device paired with ageLOC Boost Activating Serum, instantly enhancing skin radiance, plumpness, and hydration.",
@@ -112,14 +123,20 @@ export const products = [
     ]
   },
   {
-    id: 7,
+    id: 6,
     name: "Epoch® Baobab Body Butter",
     category: "BODY CARE",
     price: 38.00,
     originalPrice: 48.00,
     isSale: false,
     isLoyalty: false,
-    image: "https://images.unsplash.com/photo-1608248597359-052445e99446?auto=format&fit=crop&w=600&q=80",
+    image: "/images/product-6.jpg",
+    images: [
+      "/images/product-6.jpg",
+      "/images/hd/cucumber_mask.jpg",
+      "/images/hd/skincare_routine.jpg",
+      "/images/product-8.jpg"
+    ],
     rating: 5,
     tag: "Eco Friendly",
     description: "Rich ethnobotanical body butter formulated with African baobab fruit pulp, shea butter, and macadamia nut oil. Delivers 24-hour intense moisture for supple, glowing skin.",
@@ -130,21 +147,51 @@ export const products = [
     ]
   },
   {
-    id: 8,
-    name: "Epoch® Yin & Yang Detox Mask",
-    category: "NU SKIN CARE",
-    price: 40.00,
-    originalPrice: 52.00,
-    isSale: true,
-    isLoyalty: false,
-    image: "https://images.unsplash.com/photo-1567928815114-1e0339d37fb9?auto=format&fit=crop&w=600&q=80",
-    rating: 4.8,
-    tag: "Award Winner",
-    description: "Dual detoxifying and soothing mask powered by activated bamboo charcoal and porcelain flower extract. Lifts urban micro-pollutants and instantly balances moisture levels.",
+    id: 7,
+    name: "Pharmanex® Tegreen 97® Green Tea",
+    category: "PHARMANEX",
+    price: 45.00,
+    originalPrice: 58.00,
+    isSale: false,
+    isLoyalty: true,
+    image: "/images/hd/vitamins_hd.jpg",
+    images: [
+      "/images/hd/vitamins_hd.jpg",
+      "/images/hd/softgels_hd.jpg",
+      "/images/product-1.jpg",
+      "/images/hd/skincare_routine.jpg"
+    ],
+    rating: 5,
+    tag: "Best Seller",
+    description: "Standardized concentrated green tea extract featuring 97% polyphenols and 65% EGCg. Delivers potent antioxidant protection, shields cells from free radicals, and promotes healthy cellular metabolism.",
     specifications: [
-      { key: "Volume", value: "75ml (2.5 fl oz)" },
-      { key: "Recognition", value: "Silver Winner - Global Green Beauty Awards" },
-      { key: "Packaging", value: "100% PCR eco-friendly recycled resin" }
+      { key: "Packaging", value: "Bottle of 120 capsules" },
+      { key: "Potency", value: "1 capsule equivalent to 7 cups of brewed green tea" },
+      { key: "Caffeine", value: "99.5% decaffeinated, non-stimulating" }
+    ]
+  },
+  {
+    id: 8,
+    name: "Pharmanex® Marine Omega-3 Softgels",
+    category: "PHARMANEX",
+    price: 55.00,
+    originalPrice: 70.00,
+    isSale: true,
+    isLoyalty: true,
+    image: "/images/hd/softgels_hd.jpg",
+    images: [
+      "/images/hd/softgels_hd.jpg",
+      "/images/hd/vitamins_hd.jpg",
+      "/images/product-2.jpg",
+      "/images/product-3.jpg"
+    ],
+    rating: 4.9,
+    tag: "Top Rated",
+    description: "Ultra-pure deep-sea fish oil delivering high concentrations of EPA and DHA combined with Antarctic krill oil. Supports cardiovascular health, brain cognition, vision, and joint flexibility.",
+    specifications: [
+      { key: "Packaging", value: "Bottle of 120 softgels" },
+      { key: "Source", value: "Cold-water pristine fisheries & Antarctic krill" },
+      { key: "Quality Standard", value: "Strict 6S standard, tested free of mercury & heavy metals" }
     ]
   },
   {
@@ -155,7 +202,13 @@ export const products = [
     originalPrice: 52.00,
     isSale: true,
     isLoyalty: false,
-    image: "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=600&q=80",
+    image: "/images/product-4.jpg",
+    images: [
+      "/images/product-4.jpg",
+      "/images/hd/cosmetic_jar.jpg",
+      "/images/hd/beauty_mirror.jpg",
+      "/images/product-6.jpg"
+    ],
     rating: 4.8,
     tag: "Award Winner",
     description: "Cooling cream-gel eye treatment that visibly reduces puffiness, dark circles, and protects delicate under-eye skin against environmental stress and digital blue light (HEV).",
@@ -173,7 +226,13 @@ export const products = [
     originalPrice: 68.00,
     isSale: true,
     isLoyalty: false,
-    image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600&q=80",
+    image: "/images/product-7.jpg",
+    images: [
+      "/images/product-7.jpg",
+      "/images/hd/skincare_glow.jpg",
+      "/images/product-5.jpg",
+      "/images/hd/cosmetic_jar.jpg"
+    ],
     rating: 4.9,
     tag: "Best Seller",
     description: "Smart restorative serum that automatically adapts hydration to your surroundings—drawing moisture in dry air and remaining featherlight in high humidity for continuous radiant glow.",
@@ -185,49 +244,19 @@ export const products = [
   },
   {
     id: 11,
-    name: "Pharmanex® Tegreen 97® Green Tea Extract",
-    category: "PHARMANEX",
-    price: 45.00,
-    originalPrice: 58.00,
-    isSale: false,
-    isLoyalty: true,
-    image: "/images/hd/vitamins_hd.jpg",
-    rating: 5,
-    tag: "Best Seller",
-    description: "Standardized concentrated green tea extract featuring 97% polyphenols and 65% EGCg. Delivers potent antioxidant protection, shields cells from free radicals, and promotes healthy cellular metabolism.",
-    specifications: [
-      { key: "Packaging", value: "Bottle of 120 capsules" },
-      { key: "Potency", value: "1 capsule equivalent to 7 cups of brewed green tea" },
-      { key: "Caffeine", value: "99.5% decaffeinated, non-stimulating" }
-    ]
-  },
-  {
-    id: 12,
-    name: "Pharmanex® Marine Omega-3 Softgels",
-    category: "PHARMANEX",
-    price: 55.00,
-    originalPrice: 70.00,
-    isSale: true,
-    isLoyalty: true,
-    image: "/images/hd/softgels_hd.jpg",
-    rating: 4.9,
-    tag: "Top Rated",
-    description: "Ultra-pure deep-sea fish oil delivering high concentrations of EPA and DHA combined with Antarctic krill oil. Supports cardiovascular health, brain cognition, vision, and joint flexibility.",
-    specifications: [
-      { key: "Packaging", value: "Bottle of 120 softgels" },
-      { key: "Source", value: "Cold-water pristine fisheries & Antarctic krill" },
-      { key: "Quality Standard", value: "Strict 6S standard, tested free of mercury & heavy metals" }
-    ]
-  },
-  {
-    id: 13,
     name: "ageLOC® Tru Face® Essence Ultra",
     category: "AGELOC",
     price: 188.00,
     originalPrice: 235.00,
     isSale: true,
     isLoyalty: true,
-    image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=600&q=80",
+    image: "/images/product-1.jpg",
+    images: [
+      "/images/product-1.jpg",
+      "/images/hd/softgels_hd.jpg",
+      "/images/popular_product_1.png",
+      "/images/pure_pineapple_bottle_hd.png"
+    ],
     rating: 5,
     tag: "VIP Reward",
     description: "Firming pearl essence capsules powered by proprietary Ethocyn to help restore skin elasticity, define jawline contours, and diminish the appearance of fine lines and sagging.",
@@ -238,14 +267,44 @@ export const products = [
     ]
   },
   {
-    id: 14,
+    id: 12,
+    name: "Epoch® Yin & Yang Detox Mask",
+    category: "NU SKIN CARE",
+    price: 40.00,
+    originalPrice: 52.00,
+    isSale: true,
+    isLoyalty: false,
+    image: "/images/product-8.jpg",
+    images: [
+      "/images/product-8.jpg",
+      "/images/hd/cucumber_mask.jpg",
+      "/images/product-6.jpg",
+      "/images/hd/skincare_routine.jpg"
+    ],
+    rating: 4.8,
+    tag: "Award Winner",
+    description: "Dual detoxifying and soothing mask powered by activated bamboo charcoal and porcelain flower extract. Lifts urban micro-pollutants and instantly balances moisture levels.",
+    specifications: [
+      { key: "Volume", value: "75ml (2.5 fl oz)" },
+      { key: "Recognition", value: "Silver Winner - Global Green Beauty Awards" },
+      { key: "Packaging", value: "100% PCR eco-friendly recycled resin" }
+    ]
+  },
+  {
+    id: 13,
     name: "Epoch® Glacial Marine Mud Mask",
     category: "NU SKIN CARE",
     price: 36.00,
     originalPrice: 46.00,
     isSale: false,
     isLoyalty: false,
-    image: "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?auto=format&fit=crop&w=600&q=80",
+    image: "/images/hd/cucumber_mask.jpg",
+    images: [
+      "/images/hd/cucumber_mask.jpg",
+      "/images/product-8.jpg",
+      "/images/product-6.jpg",
+      "/images/hd/skincare_routine.jpg"
+    ],
     rating: 4.9,
     tag: "Eco Friendly",
     description: "Ancient glacial mud harvested from pristine Pacific Northwest tidal estuaries, enriched with over 50 beneficial skin-nourishing minerals. Draws out impurities and visibly refines pores.",
@@ -256,14 +315,20 @@ export const products = [
     ]
   },
   {
-    id: 15,
+    id: 14,
     name: "ageLOC® Dermatic Effects® Body Contouring",
     category: "BODY CARE",
     price: 52.00,
     originalPrice: 65.00,
     isSale: true,
     isLoyalty: false,
-    image: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=600&q=80",
+    image: "/images/product-3.jpg",
+    images: [
+      "/images/product-3.jpg",
+      "/images/popular_product_2.png",
+      "/images/pure_pineapple_tube_hd.png",
+      "/images/product-2.jpg"
+    ],
     rating: 4.8,
     tag: "Best Seller",
     description: "Scientifically formulated contouring lotion designed to inhibit fat production, visibly smooth the appearance of cellulite, and promote firmer, more hydrated skin texture.",
@@ -274,7 +339,7 @@ export const products = [
     ]
   },
   {
-    id: 16,
+    id: 15,
     name: "Nu Colour® Bioadaptive BB+ Skin Loving Cushion",
     category: "NU SKIN CARE",
     price: 48.00,
@@ -282,6 +347,12 @@ export const products = [
     isSale: true,
     isLoyalty: false,
     image: "/images/hd/cosmetic_jar.jpg",
+    images: [
+      "/images/hd/cosmetic_jar.jpg",
+      "/images/hd/beauty_mirror.jpg",
+      "/images/product-5.jpg",
+      "/images/product-4.jpg"
+    ],
     rating: 4.7,
     tag: "New Arrival",
     description: "Next-generation skin-caring beauty balm cushion infused with bioadaptive botanicals. Provides luminous buildable coverage, all-day hydration, and broad-spectrum SPF 35 protection.",
@@ -289,6 +360,31 @@ export const products = [
       { key: "Net Weight", value: "15g (includes antimicrobial puff)" },
       { key: "Sun Protection", value: "Broad Spectrum SPF 35 PA++" },
       { key: "Wear Time", value: "Long-lasting radiant finish up to 12 hours" }
+    ]
+  },
+  {
+    id: 16,
+    name: "ageLOC® Y-Span Youth Preservation",
+    category: "AGELOC",
+    price: 14.00,
+    originalPrice: 35.00,
+    isSale: true,
+    isLoyalty: true,
+    image: "/images/popular_product_3.png",
+    images: [
+      "/images/popular_product_3.png",
+      "/images/popular_product_1.png",
+      "/images/hd/vitamins_hd.jpg",
+      "/images/hd/softgels_hd.jpg"
+    ],
+    rating: 5,
+    tag: "Reasonable Price",
+    description: "Nu Skin's most advanced anti-aging supplement, scientifically formulated to influence gene expression and help you live your most vibrant, youthful years.",
+    specifications: [
+      { key: "Packaging", value: "Bottle of 120 softgels" },
+      { key: "Origin", value: "USA" },
+      { key: "Target Audience", value: "Adults aged 18 and older" },
+      { key: "Shelf Life", value: "24 months from manufacture date" }
     ]
   }
 ];

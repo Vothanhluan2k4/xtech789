@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight, Heart } from 'lucide-react';
+import { products } from '../data/products';
 
 export default function PopularProductsSection({ 
   onAddToCart, 
@@ -36,96 +37,8 @@ export default function PopularProductsSection({
     }, 1500);
   };
 
-  const popularList = [
-    {
-      id: 1,
-      name: "Pure Pineapple",
-      category: "AGELOC",
-      price: 14.00,
-      originalPrice: 35.00,
-      isSale: false,
-      image: "/images/popular_product_1.png",
-      description: "ageLOC Y-Span dietary supplement infused with refreshing natural pineapple flavor.",
-      specifications: [{ key: "Origin", value: "USA" }]
-    },
-    {
-      id: 2,
-      name: "Pure Pineapple",
-      category: "AGELOC",
-      price: 14.00,
-      originalPrice: 35.00,
-      isSale: true,
-      image: "/images/popular_product_2.png",
-      description: "Gentle intensive moisturizing and cleansing cream with natural ingredients.",
-      specifications: [{ key: "Origin", value: "USA" }]
-    },
-    {
-      id: 3,
-      name: "Pure Pineapple",
-      category: "AGELOC",
-      price: 14.00,
-      originalPrice: 35.00,
-      isSale: true,
-      image: "/images/popular_product_3.png",
-      description: "Advanced cellular renewal essence nourishing deeply from within.",
-      specifications: [{ key: "Origin", value: "USA" }]
-    },
-    {
-      id: 4,
-      name: "Pure Pineapple",
-      category: "AGELOC",
-      price: 14.00,
-      originalPrice: 35.00,
-      isSale: true,
-      image: "/images/popular_product_1.png",
-      description: "ageLOC cellular regeneration solution with rich vitamins.",
-      specifications: [{ key: "Origin", value: "USA" }]
-    },
-    {
-      id: 5,
-      name: "Pure Pineapple",
-      category: "AGELOC",
-      price: 14.00,
-      originalPrice: 35.00,
-      isSale: false,
-      image: "/images/popular_product_2.png",
-      description: "Gentle intensive moisturizing and cleansing cream with natural ingredients.",
-      specifications: [{ key: "Origin", value: "USA" }]
-    },
-    {
-      id: 6,
-      name: "Pure Pineapple",
-      category: "AGELOC",
-      price: 14.00,
-      originalPrice: 35.00,
-      isSale: true,
-      image: "/images/popular_product_3.png",
-      description: "Advanced cellular renewal essence nourishing deeply from within.",
-      specifications: [{ key: "Origin", value: "USA" }]
-    },
-    {
-      id: 7,
-      name: "Pure Pineapple",
-      category: "AGELOC",
-      price: 14.00,
-      originalPrice: 35.00,
-      isSale: true,
-      image: "/images/popular_product_1.png",
-      description: "ageLOC Y-Span dietary supplement infused with refreshing natural pineapple flavor.",
-      specifications: [{ key: "Origin", value: "USA" }]
-    },
-    {
-      id: 8,
-      name: "Pure Pineapple",
-      category: "AGELOC",
-      price: 14.00,
-      originalPrice: 35.00,
-      isSale: false,
-      image: "/images/popular_product_2.png",
-      description: "Gentle intensive moisturizing and cleansing cream with natural ingredients.",
-      specifications: [{ key: "Origin", value: "USA" }]
-    }
-  ];
+  // Use first 8 distinct products with unique names, categories, and images
+  const popularList = products.slice(0, 8);
 
   // Determine visible items based on screen width: 4 items on desktop!
   const getVisibleCount = () => {
