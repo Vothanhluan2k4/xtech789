@@ -70,7 +70,7 @@ export default function NuSkinWaySection() {
           {/* Left Image */}
           <div className="w-full h-[280px] sm:h-[320px] md:h-auto min-h-[280px] md:min-h-[350px]">
             <img
-              src="/images/force_for_good_exact.png"
+              src="/images/force_for_good_hd.jpg"
               alt="Being a Force for Good"
               className="w-full h-full object-cover object-center block"
             />
@@ -118,7 +118,7 @@ export default function NuSkinWaySection() {
           {/* Right Image */}
           <div className="order-1 md:order-2 w-full h-[280px] sm:h-[320px] md:h-auto min-h-[280px] md:min-h-[350px]">
             <img
-              src="/images/nature_science_exact.png"
+              src="/images/nature_science_hd.jpg"
               alt="Nature + Science"
               className="w-full h-full object-cover object-center block"
             />
