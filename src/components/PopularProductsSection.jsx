@@ -75,39 +75,42 @@ export default function PopularProductsSection({
           <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 items-stretch">
             
             {/* Left Feature Card: Pure White Card with Teal Brush Strokes (Larger & Taller) */}
-            <div className="w-full lg:w-[270px] xl:w-[295px] flex-shrink-0 bg-white p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden border border-gray-100 shadow-xs min-h-[340px] lg:min-h-[420px]">
+            <div className="w-full lg:w-[290px] xl:w-[320px] 2xl:w-[340px] flex-shrink-0 bg-white p-6 sm:p-8 lg:p-9 flex flex-col justify-between relative overflow-hidden border border-gray-100 shadow-xs min-h-[380px] lg:min-h-[460px]">
               {/* Teal Brush Strokes matching exact Figma design */}
-              <svg className="absolute top-0 right-0 w-full h-full pointer-events-none" viewBox="0 0 260 420" fill="none" preserveAspectRatio="none">
+              <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 320 460" fill="none" preserveAspectRatio="none">
                 {/* 4 Strong Teal Rays radiating from right edge */}
-                <line x1="120" y1="45" x2="245" y2="65" stroke="#00A887" strokeWidth="7" strokeLinecap="round" />
-                <line x1="110" y1="120" x2="240" y2="118" stroke="#00A887" strokeWidth="7" strokeLinecap="round" />
-                <line x1="125" y1="195" x2="250" y2="155" stroke="#00A887" strokeWidth="7" strokeLinecap="round" />
-                <line x1="165" y1="250" x2="248" y2="195" stroke="#00A887" strokeWidth="7" strokeLinecap="round" />
+                <line x1="140" y1="50" x2="295" y2="70" stroke="#00A887" strokeWidth="8" strokeLinecap="round" />
+                <line x1="130" y1="130" x2="290" y2="128" stroke="#00A887" strokeWidth="8" strokeLinecap="round" />
+                <line x1="145" y1="210" x2="300" y2="170" stroke="#00A887" strokeWidth="8" strokeLinecap="round" />
+                <line x1="190" y1="270" x2="295" y2="215" stroke="#00A887" strokeWidth="8" strokeLinecap="round" />
                 {/* Faint Mint Rays at bottom-left */}
-                <line x1="0" y1="270" x2="110" y2="235" stroke="rgba(0, 168, 135, 0.12)" strokeWidth="12" strokeLinecap="round" />
-                <line x1="0" y1="380" x2="130" y2="350" stroke="rgba(0, 168, 135, 0.12)" strokeWidth="12" strokeLinecap="round" />
+                <line x1="0" y1="300" x2="130" y2="260" stroke="rgba(0, 168, 135, 0.12)" strokeWidth="14" strokeLinecap="round" />
+                <line x1="0" y1="420" x2="150" y2="390" stroke="rgba(0, 168, 135, 0.12)" strokeWidth="14" strokeLinecap="round" />
               </svg>
 
-              {/* Title */}
+              {/* Title & Link */}
               <div className="relative z-10 pt-1">
-                <h3 className="text-2xl sm:text-3xl lg:text-[32px] font-bold text-gray-900 leading-[1.2] tracking-tight">
+                <h3 className="text-2xl sm:text-3xl lg:text-[34px] xl:text-[38px] font-bold text-gray-900 leading-[1.18] tracking-tight">
                   Find out<br />
                   what<br />
                   everyone's<br />
                   talking<br />
                   about
                 </h3>
+
+                {/* Link directly below title with generous breathing room */}
+                <div className="pt-8 sm:pt-10">
+                  <button 
+                    onClick={() => onSelectProduct(popularList[0])}
+                    className="text-sm sm:text-base font-normal text-gray-700 hover:text-black transition-colors text-left"
+                  >
+                    Browse our best
+                  </button>
+                </div>
               </div>
 
-              {/* Link */}
-              <div className="relative z-10 pt-8 sm:pt-10">
-                <button 
-                  onClick={() => onSelectProduct(popularList[0])}
-                  className="text-xs sm:text-sm font-medium text-gray-600 hover:text-black transition-colors text-left"
-                >
-                  Browse our best
-                </button>
-              </div>
+              {/* Lower decorative spacer for mint rays */}
+              <div className="relative z-10"></div>
             </div>
 
             {/* Right Area: Tabs + Product Cards (Strictly 3 Products) */}
@@ -119,20 +122,20 @@ export default function PopularProductsSection({
                 <div className="flex items-center space-x-1">
                   <button
                     onClick={() => setActiveTab('description')}
-                    className={`px-5 py-2 text-xs font-bold uppercase tracking-wider transition-all border-t-2 ${
+                    className={`px-6 py-2.5 text-xs font-bold uppercase tracking-wider transition-all border-t-[3px] ${
                       activeTab === 'description'
-                        ? 'bg-white border-[#D4A373] text-gray-900 shadow-xs'
-                        : 'bg-transparent border-transparent text-gray-400 hover:text-gray-700'
+                        ? 'bg-white border-[#E59819] text-gray-900 shadow-2xs'
+                        : 'bg-[#EDF2F4] border-transparent text-gray-400 hover:text-gray-700'
                     }`}
                   >
                     DESCRIPTION
                   </button>
                   <button
                     onClick={() => setActiveTab('specifications')}
-                    className={`px-5 py-2 text-xs font-bold uppercase tracking-wider transition-all border-t-2 ${
+                    className={`px-6 py-2.5 text-xs font-bold uppercase tracking-wider transition-all border-t-[3px] ${
                       activeTab === 'specifications'
-                        ? 'bg-white border-[#D4A373] text-gray-900 shadow-xs'
-                        : 'bg-transparent border-transparent text-gray-400 hover:text-gray-700'
+                        ? 'bg-white border-[#E59819] text-gray-900 shadow-2xs'
+                        : 'bg-[#EDF2F4] border-transparent text-gray-400 hover:text-gray-700'
                     }`}
                   >
                     SPECIFICATIONS
@@ -176,10 +179,10 @@ export default function PopularProductsSection({
                       <div
                         key={product.id}
                         onClick={() => onSelectProduct(product)}
-                        className="bg-white border border-gray-100 rounded-none overflow-hidden hover:shadow-md transition-shadow flex flex-col justify-between group cursor-pointer relative"
+                        className="bg-white border border-gray-200/70 rounded-none overflow-hidden hover:shadow-md transition-shadow flex flex-col justify-between group cursor-pointer relative"
                       >
-                        {/* Product Image */}
-                        <div className="relative h-48 sm:h-52 lg:h-56 bg-white flex items-center justify-center p-3 overflow-hidden">
+                        {/* Product Image Area */}
+                        <div className="relative h-52 sm:h-56 lg:h-60 xl:h-64 bg-white flex items-center justify-center p-3 overflow-hidden">
                           <img
                             src={product.image}
                             alt={product.name}
@@ -200,8 +203,8 @@ export default function PopularProductsSection({
                           </button>
                         </div>
 
-                        {/* Product Info */}
-                        <div className="p-3.5 sm:p-4 text-center border-t border-gray-50 flex-1 flex flex-col justify-between">
+                        {/* Product Info with subtle pale gray background matching screenshot */}
+                        <div className="bg-[#F5F8F9] p-3.5 sm:p-4 text-center border-t border-gray-100 flex-1 flex flex-col justify-between">
                           <div>
                             <p className="text-[10px] sm:text-[11px] font-medium text-gray-400 uppercase tracking-widest mb-1">
                               {product.category}
@@ -212,7 +215,7 @@ export default function PopularProductsSection({
 
                             {/* Pricing: Gold $14.00, Gray strikethrough $35.00 */}
                             <div className="flex items-center justify-center gap-2 mb-3">
-                              <span className="text-xs sm:text-sm font-bold text-[#D4A373]">
+                              <span className="text-xs sm:text-sm font-bold text-[#E59819]">
                                 ${product.price.toFixed(2)}
                               </span>
                               {product.originalPrice && (
@@ -226,7 +229,7 @@ export default function PopularProductsSection({
                           {/* Add to card button matching exact spelling and style */}
                           <button
                             onClick={(e) => handleAdd(product, e)}
-                            className={`w-full py-2 px-3 font-semibold text-xs transition-colors rounded-none ${
+                            className={`w-full py-2.5 px-3 font-semibold text-xs transition-colors rounded-none uppercase ${
                               isAdded
                                 ? 'bg-emerald-600 text-white'
                                 : 'bg-[#511B57] hover:bg-[#3D1442] text-white'
