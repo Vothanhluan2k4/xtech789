@@ -65,10 +65,10 @@ export default function NuSkinWaySection() {
           </div>
         </div>
 
-        {/* Story 1: Being a Force for Good (Left image reduced, Right content at start with top spacing) */}
+        {/* Story 1: Being a Force for Good (Left image height increased by 15-20px, Right content at start with top spacing) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10 items-start mb-10 sm:mb-14 lg:mb-16 bg-white">
-          {/* Left Image (Reduced Height) */}
-          <div className="w-full h-[240px] sm:h-[280px] md:h-[300px] lg:h-[320px] overflow-hidden">
+          {/* Left Image (Height increased by 15-20px) */}
+          <div className="w-full h-[255px] sm:h-[295px] md:h-[320px] lg:h-[340px] overflow-hidden">
             <img
               src="/images/force_for_good_exact.png"
               alt="Being a Force for Good"
@@ -95,7 +95,7 @@ export default function NuSkinWaySection() {
           </div>
         </div>
 
-        {/* Story 2: Nature + Science (Left content at start with top spacing, Right image reduced) */}
+        {/* Story 2: Nature + Science (Left content at start with top spacing, Right image height increased by 15-20px) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10 items-start bg-white">
           {/* Left Text Block (Content aligned to start with top spacing) */}
           <div className="order-2 md:order-1 pt-2 sm:pt-4 md:pt-6 lg:pt-8 pr-4 sm:pr-8 flex flex-col justify-start items-start bg-white">
@@ -115,8 +115,8 @@ export default function NuSkinWaySection() {
             </div>
           </div>
 
-          {/* Right Image (Reduced Height) */}
-          <div className="order-1 md:order-2 w-full h-[240px] sm:h-[280px] md:h-[300px] lg:h-[320px] overflow-hidden">
+          {/* Right Image (Height increased by 15-20px) */}
+          <div className="order-1 md:order-2 w-full h-[255px] sm:h-[295px] md:h-[320px] lg:h-[340px] overflow-hidden">
             <img
               src="/images/nature_science_exact.png"
               alt="Nature + Science"
