@@ -123,7 +123,7 @@ export default function HeroSection({
     { id: 'home', label: 'Home' },
     { id: 'shop', label: 'Shop' },
     { id: 'detail', label: 'Shop Detail' },
-    { id: 'pages', label: 'Pages', hasDropdown: true },
+    { id: 'news', label: 'News' },
     { id: 'contact', label: 'Contact' },
   ];
 
@@ -172,6 +172,8 @@ export default function HeroSection({
                         setCurrentView('shop');
                       } else if (link.id === 'detail') {
                         setCurrentView('detail');
+                      } else if (link.id === 'news') {
+                        setCurrentView('news');
                       } else {
                         setCurrentView('home');
                       }

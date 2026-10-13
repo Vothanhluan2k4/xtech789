@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-export default function NewsSection() {
+export default function NewsSection({ onViewAllNews }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [visibleCount, setVisibleCount] = useState(3);
   const [touchStart, setTouchStart] = useState(0);
@@ -80,7 +80,7 @@ export default function NewsSection() {
           <div className="inline-flex items-center justify-center px-6 sm:px-12 py-2 sm:py-3 bg-brand-900 text-white font-black text-lg sm:text-2xl rounded-xl shadow-sm">
             <span className="w-4 sm:w-8 h-0.5 bg-white mr-2.5 sm:mr-3"></span>
             <span className="tracking-wide text-center">Nu Skin In The News</span>
-            <span className="w-4 sm:w-8 h-0.5 bg-white ml-2.5 sm:ml-3"></span>
+            <span className="w-4 sm:w-8 h-0.5 bg-white ml-2.5 sm:mr-3"></span>
           </div>
         </div>
 
@@ -92,12 +92,13 @@ export default function NewsSection() {
             
             {/* View All link directly aligned at top of left column */}
             <div className="flex justify-end pr-2 mb-2 sm:mb-3">
-              <a 
-                href="#news-all" 
-                className="text-xs sm:text-sm font-medium text-gray-700 hover:text-brand-900 underline decoration-1 transition-colors"
+              <button 
+                type="button"
+                onClick={() => onViewAllNews && onViewAllNews()}
+                className="text-xs sm:text-sm font-medium text-gray-700 hover:text-brand-900 underline decoration-1 transition-colors cursor-pointer"
               >
                 View All &gt;&gt;
-              </a>
+              </button>
             </div>
 
             {/* Slider wrapper with left & right navigation arrows and touch swipe */}
@@ -128,6 +129,7 @@ export default function NewsSection() {
                   {displayedItems.map((item, idx) => (
                     <div
                       key={item.id + idx}
+                      onClick={() => onViewAllNews && onViewAllNews()}
                       className="w-full bg-white border border-gray-200/80 rounded-none p-3.5 sm:p-4 flex flex-col justify-between hover:shadow-md transition-shadow group cursor-pointer min-h-[340px] sm:min-h-[380px] lg:min-h-[415px]"
                     >
                       {/* Top Square Product / Model Image */}
@@ -180,7 +182,10 @@ export default function NewsSection() {
 
           {/* Right: Tall News Feature Banner (Spans full height on desktop, nicely sized on mobile) */}
           <div className="lg:col-span-1 flex flex-col">
-            <div className="relative w-full h-full min-h-[260px] sm:min-h-[320px] lg:min-h-0 overflow-hidden shadow-sm group cursor-pointer bg-gray-900 rounded-none flex-1">
+            <div 
+              onClick={() => onViewAllNews && onViewAllNews()}
+              className="relative w-full h-full min-h-[260px] sm:min-h-[320px] lg:min-h-0 overflow-hidden shadow-sm group cursor-pointer bg-gray-900 rounded-none flex-1"
+            >
               {/* Background Image (HD 600x900) */}
               <img
                 src="/images/news/news_tall_card.jpg"

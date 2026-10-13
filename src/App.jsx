@@ -10,6 +10,7 @@ import NuSkinWaySection from './components/NuSkinWaySection';
 import NewsSection from './components/NewsSection';
 import DetailView from './components/DetailView';
 import ShopView from './components/ShopView';
+import NewsListView from './components/NewsListView';
 import Footer from './components/Footer';
 import CartDrawer from './components/CartDrawer';
 import WishlistDrawer from './components/WishlistDrawer';
@@ -17,7 +18,7 @@ import Toast from './components/Toast';
 import { products } from './data/products';
 
 export default function App() {
-  const [currentView, setCurrentView] = useState('home'); // 'home' | 'shop' | 'detail'
+  const [currentView, setCurrentView] = useState('home'); // 'home' | 'shop' | 'detail' | 'news'
   const [selectedProduct, setSelectedProduct] = useState(products[0]);
   const [searchTerm, setSearchTerm] = useState('');
   const [cart, setCart] = useState([]);
@@ -210,7 +211,14 @@ export default function App() {
 
   // Navigate to Shop
   const handleNavigateShop = () => {
+    setSearchTerm('');
     setCurrentView('shop');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Navigate to News
+  const handleNavigateNews = () => {
+    setCurrentView('news');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -255,7 +263,7 @@ export default function App() {
         setIsMobileMenuOpen={setIsMobileMenuOpen}
       />
 
-      {/* 4. Main Content (Home, Shop or Detail) */}
+      {/* 4. Main Content (Home, Shop, Detail or News) */}
       <main className="flex-1">
         {currentView === 'detail' ? (
           <DetailView
@@ -277,6 +285,11 @@ export default function App() {
             onBackToHome={handleNavigateHome}
             onToggleWishlist={handleToggleWishlist}
             wishlistIds={wishlistIds}
+          />
+        ) : currentView === 'news' ? (
+          <NewsListView
+            onBackToHome={handleNavigateHome}
+            onNavigateShop={handleNavigateShop}
           />
         ) : (
           <>
@@ -309,7 +322,9 @@ export default function App() {
             <NuSkinWaySection />
 
             {/* News Updates */}
-            <NewsSection />
+            <NewsSection
+              onViewAllNews={handleNavigateNews}
+            />
           </>
         )}
       </main>
