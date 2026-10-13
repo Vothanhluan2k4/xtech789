@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight, Heart } from 'lucide-react';
 
 export default function PopularProductsSection({ 
@@ -12,11 +12,19 @@ export default function PopularProductsSection({
   const [addedIds, setAddedIds] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
+  const containerRef = useRef(null);
+  const [containerWidth, setContainerWidth] = useState(0);
 
   useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    const updateWidth = () => {
+      setWindowWidth(window.innerWidth);
+      if (containerRef.current) {
+        setContainerWidth(containerRef.current.offsetWidth);
+      }
+    };
+    updateWidth();
+    window.addEventListener('resize', updateWidth);
+    return () => window.removeEventListener('resize', updateWidth);
   }, []);
 
   const handleAdd = (product, e) => {
@@ -119,8 +127,20 @@ export default function PopularProductsSection({
     }
   ];
 
-  // Carousel slide boundaries
-  const maxIndex = Math.max(0, popularList.length - 3);
+  // Determine visible items based on screen width: 4 items on desktop!
+  const getVisibleCount = () => {
+    if (windowWidth < 640) return 1;
+    if (windowWidth < 1024) return 2;
+    return 4;
+  };
+  const visibleCount = getVisibleCount();
+  const maxIndex = Math.max(0, popularList.length - visibleCount);
+
+  useEffect(() => {
+    if (currentIndex > maxIndex) {
+      setCurrentIndex(maxIndex);
+    }
+  }, [maxIndex, currentIndex]);
 
   const handleNext = () => {
     setCurrentIndex((prev) => (prev < maxIndex ? prev + 1 : 0));
@@ -130,8 +150,18 @@ export default function PopularProductsSection({
     setCurrentIndex((prev) => (prev > 0 ? prev - 1 : maxIndex));
   };
 
-  // Slide step percentage calculation
-  const slideStep = windowWidth < 640 ? 86 : windowWidth < 1024 ? 49 : 30.77;
+  // Precise pixel offset for smooth sliding without gaps distortion
+  const getSlideOffset = () => {
+    if (!containerWidth) {
+      return (currentIndex * 100) / visibleCount;
+    }
+    if (windowWidth < 640) {
+      return currentIndex * (containerWidth * 0.85 + 10);
+    }
+    const gap = windowWidth >= 1280 ? 12 : 10;
+    const cardWidth = (containerWidth - (visibleCount - 1) * gap) / visibleCount;
+    return currentIndex * (cardWidth + gap);
+  };
 
   return (
     <section className="pt-8 pb-4 sm:pb-6 bg-white">
@@ -152,7 +182,7 @@ export default function PopularProductsSection({
           <div className="flex flex-col lg:flex-row gap-3.5 sm:gap-4 lg:gap-5 items-stretch">
             
             {/* Left Feature Card: Pure White Card with Teal Brush Strokes (Larger & Taller, Wider) */}
-            <div className="w-full lg:w-[320px] xl:w-[345px] 2xl:w-[365px] flex-shrink-0 bg-white p-6 sm:p-7 lg:p-8 pb-12 flex flex-col justify-between relative overflow-hidden border border-gray-100 shadow-xs min-h-[440px] lg:min-h-[520px]">
+            <div className="w-full lg:w-[280px] xl:w-[310px] 2xl:w-[330px] flex-shrink-0 bg-white p-6 sm:p-7 lg:p-8 pb-12 flex flex-col justify-between relative overflow-hidden border border-gray-100 shadow-xs min-h-[480px] lg:min-h-[540px] xl:min-h-[560px]">
               {/* Teal Brush Strokes matching exact Figma design */}
               <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 350 520" fill="none" preserveAspectRatio="none">
                 {/* 5 Teal Rays radiating from right edge */}
@@ -251,11 +281,11 @@ export default function PopularProductsSection({
                   <ChevronRight className="w-5 h-5 stroke-[1.5]" />
                 </button>
 
-                {/* Sliding Cards Track: Tight gap between cards matching screenshot */}
-                <div className="overflow-hidden relative w-full flex-1">
+                {/* Sliding Cards Track: 4 products visible on desktop with increased height */}
+                <div ref={containerRef} className="overflow-hidden relative w-full flex-1">
                   <div 
-                    className="flex gap-3 sm:gap-3.5 transition-transform duration-500 ease-in-out"
-                    style={{ transform: `translateX(-${currentIndex * slideStep}%)` }}
+                    className="flex gap-2.5 xl:gap-3 transition-transform duration-500 ease-in-out"
+                    style={{ transform: `translateX(-${getSlideOffset()}px)` }}
                   >
                     {popularList.map((product) => {
                       const isAdded = addedIds.includes(product.id);
@@ -263,14 +293,14 @@ export default function PopularProductsSection({
                         <div
                           key={product.id}
                           onClick={() => onSelectProduct(product)}
-                          className="w-[82%] sm:w-[48%] lg:w-[calc((100%-24px)/3.25)] flex-shrink-0 bg-white border border-gray-200/70 rounded-none overflow-hidden hover:shadow-md transition-shadow flex flex-col justify-between group cursor-pointer relative"
+                          className="w-[85%] sm:w-[calc((100%-10px)/2)] lg:w-[calc((100%-30px)/4)] xl:w-[calc((100%-36px)/4)] flex-shrink-0 bg-white border border-gray-200/70 rounded-none overflow-hidden hover:shadow-md transition-shadow flex flex-col justify-between group cursor-pointer relative"
                         >
-                          {/* Product Image Area */}
-                          <div className="relative h-48 sm:h-52 lg:h-56 bg-white flex items-center justify-center p-3 overflow-hidden">
+                          {/* Product Image Area - Increased Height */}
+                          <div className="relative h-60 sm:h-64 lg:h-72 xl:h-80 bg-white flex items-center justify-center p-3 sm:p-4 overflow-hidden">
                             <img
                               src={product.image}
                               alt={product.name}
-                              className="max-h-full max-w-full object-contain group-hover:scale-102 transition-transform duration-300"
+                              className="h-full w-full object-contain group-hover:scale-105 transition-transform duration-300"
                             />
 
                             {/* Heart Wishlist Toggle Button */}
@@ -288,9 +318,9 @@ export default function PopularProductsSection({
                           </div>
 
                           {/* Product Info with subtle pale gray background matching screenshot */}
-                          <div className="bg-[#F5F8F9] p-3 sm:p-3.5 text-center border-t border-gray-100 flex-1 flex flex-col justify-between">
+                          <div className="bg-[#F5F8F9] p-3 sm:p-3.5 lg:p-4 text-center border-t border-gray-100 flex-1 flex flex-col justify-between">
                             <div>
-                              <p className="text-[10px] sm:text-[11px] font-medium text-gray-400 uppercase tracking-widest mb-1">
+                              <p className="text-[10px] sm:text-[11px] font-medium text-gray-400 uppercase tracking-widest mb-1.5">
                                 {product.category}
                               </p>
                               <h4 className="text-xs sm:text-sm font-medium text-gray-900 mb-2 line-clamp-1">
@@ -298,7 +328,7 @@ export default function PopularProductsSection({
                               </h4>
 
                               {/* Pricing: Gold $14.00, Gray strikethrough $35.00 */}
-                              <div className="flex items-center justify-center gap-2 mb-3">
+                              <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
                                 <span className="text-xs sm:text-sm font-bold text-[#E59819]">
                                   ${product.price.toFixed(2)}
                                 </span>
@@ -313,7 +343,7 @@ export default function PopularProductsSection({
                             {/* Add to card button matching exact spelling and style */}
                             <button
                               onClick={(e) => handleAdd(product, e)}
-                              className={`w-full py-2 px-3 font-semibold text-xs transition-colors rounded-none uppercase ${
+                              className={`w-full py-2.5 px-3 font-semibold text-xs tracking-wider transition-colors rounded-none uppercase ${
                                 isAdded
                                 ? 'bg-emerald-600 text-white'
                                 : 'bg-[#511B57] hover:bg-[#3D1442] text-white'
@@ -328,15 +358,15 @@ export default function PopularProductsSection({
                   </div>
                 </div>
 
-                {/* Carousel bottom indicator: small black pill and gray dot centered */}
+                {/* Carousel bottom indicator: small black pill and gray dots centered */}
                 <div className="flex items-center justify-center gap-1.5 mt-5">
-                  {[0, 1, 2, 3].map((dotIdx) => {
-                    const isActive = Math.min(3, Math.floor(currentIndex * 4 / Math.max(1, maxIndex))) === dotIdx;
+                  {Array.from({ length: maxIndex + 1 }).map((_, dotIdx) => {
+                    const isActive = currentIndex === dotIdx;
                     return (
                       <button
                         key={dotIdx}
                         type="button"
-                        onClick={() => setCurrentIndex(Math.min(maxIndex, Math.round(dotIdx * maxIndex / 3)))}
+                        onClick={() => setCurrentIndex(dotIdx)}
                         className={`h-1 rounded-full transition-all cursor-pointer ${
                           isActive ? 'w-6 bg-gray-900' : 'w-1.5 bg-gray-300 hover:bg-gray-400'
                         }`}
