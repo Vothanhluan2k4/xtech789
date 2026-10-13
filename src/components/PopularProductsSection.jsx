@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Heart } from 'lucide-react';
 
 export default function PopularProductsSection({ 
@@ -10,6 +10,14 @@ export default function PopularProductsSection({
 }) {
   const [activeTab, setActiveTab] = useState('description');
   const [addedIds, setAddedIds] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleAdd = (product, e) => {
     e.stopPropagation();
@@ -53,8 +61,77 @@ export default function PopularProductsSection({
       image: "/images/popular_product_3.png",
       description: "Advanced cellular renewal essence nourishing deeply from within.",
       specifications: [{ key: "Origin", value: "USA" }]
+    },
+    {
+      id: 4,
+      name: "Pure Pineapple",
+      category: "AGELOC",
+      price: 14.00,
+      originalPrice: 35.00,
+      isSale: true,
+      image: "/images/popular_product_1.png",
+      description: "ageLOC cellular regeneration solution with rich vitamins.",
+      specifications: [{ key: "Origin", value: "USA" }]
+    },
+    {
+      id: 5,
+      name: "Pure Pineapple",
+      category: "AGELOC",
+      price: 14.00,
+      originalPrice: 35.00,
+      isSale: false,
+      image: "/images/popular_product_2.png",
+      description: "Gentle intensive moisturizing and cleansing cream with natural ingredients.",
+      specifications: [{ key: "Origin", value: "USA" }]
+    },
+    {
+      id: 6,
+      name: "Pure Pineapple",
+      category: "AGELOC",
+      price: 14.00,
+      originalPrice: 35.00,
+      isSale: true,
+      image: "/images/popular_product_3.png",
+      description: "Advanced cellular renewal essence nourishing deeply from within.",
+      specifications: [{ key: "Origin", value: "USA" }]
+    },
+    {
+      id: 7,
+      name: "Pure Pineapple",
+      category: "AGELOC",
+      price: 14.00,
+      originalPrice: 35.00,
+      isSale: true,
+      image: "/images/popular_product_1.png",
+      description: "ageLOC Y-Span dietary supplement infused with refreshing natural pineapple flavor.",
+      specifications: [{ key: "Origin", value: "USA" }]
+    },
+    {
+      id: 8,
+      name: "Pure Pineapple",
+      category: "AGELOC",
+      price: 14.00,
+      originalPrice: 35.00,
+      isSale: false,
+      image: "/images/popular_product_2.png",
+      description: "Gentle intensive moisturizing and cleansing cream with natural ingredients.",
+      specifications: [{ key: "Origin", value: "USA" }]
     }
   ];
+
+  // Carousel slide boundaries
+  const maxIndex = Math.max(0, popularList.length - 3);
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev < maxIndex ? prev + 1 : 0));
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev > 0 ? prev - 1 : maxIndex));
+  };
+
+  // Slide step percentage calculation
+  const slideStep = windowWidth < 640 ? 86 : windowWidth < 1024 ? 49 : 30.77;
 
   return (
     <section className="pt-8 pb-4 sm:pb-6 bg-white">
@@ -72,20 +149,20 @@ export default function PopularProductsSection({
         {/* Outer light-grayish container matching reference image */}
         <div className="bg-[#F3F7F8] p-4 sm:p-6 lg:p-7 border border-gray-200/50 relative">
           
-          <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 items-stretch">
+          <div className="flex flex-col lg:flex-row gap-3.5 sm:gap-4 lg:gap-5 items-stretch">
             
-            {/* Left Feature Card: Pure White Card with Teal Brush Strokes (Larger & Taller by 5-10px) */}
-            <div className="w-full lg:w-[305px] xl:w-[330px] 2xl:w-[350px] flex-shrink-0 bg-white p-6 sm:p-8 lg:p-9 pb-10 sm:pb-12 flex flex-col justify-between relative overflow-hidden border border-gray-100 shadow-xs min-h-[400px] lg:min-h-[485px]">
+            {/* Left Feature Card: Pure White Card with Teal Brush Strokes (Larger & Taller, Wider) */}
+            <div className="w-full lg:w-[320px] xl:w-[345px] 2xl:w-[365px] flex-shrink-0 bg-white p-6 sm:p-8 lg:p-9 pb-12 flex flex-col justify-between relative overflow-hidden border border-gray-100 shadow-xs min-h-[440px] lg:min-h-[520px]">
               {/* Teal Brush Strokes matching exact Figma design */}
-              <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 330 480" fill="none" preserveAspectRatio="none">
+              <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 350 520" fill="none" preserveAspectRatio="none">
                 {/* 4 Strong Teal Rays radiating from right edge */}
-                <line x1="145" y1="50" x2="305" y2="70" stroke="#00A887" strokeWidth="8" strokeLinecap="round" />
-                <line x1="135" y1="130" x2="300" y2="128" stroke="#00A887" strokeWidth="8" strokeLinecap="round" />
-                <line x1="150" y1="210" x2="310" y2="170" stroke="#00A887" strokeWidth="8" strokeLinecap="round" />
-                <line x1="195" y1="270" x2="305" y2="215" stroke="#00A887" strokeWidth="8" strokeLinecap="round" />
+                <line x1="150" y1="50" x2="320" y2="70" stroke="#00A887" strokeWidth="8" strokeLinecap="round" />
+                <line x1="140" y1="135" x2="315" y2="130" stroke="#00A887" strokeWidth="8" strokeLinecap="round" />
+                <line x1="155" y1="215" x2="325" y2="175" stroke="#00A887" strokeWidth="8" strokeLinecap="round" />
+                <line x1="205" y1="280" x2="320" y2="225" stroke="#00A887" strokeWidth="8" strokeLinecap="round" />
                 {/* Faint Mint Rays at bottom-left */}
-                <line x1="0" y1="310" x2="135" y2="270" stroke="rgba(0, 168, 135, 0.12)" strokeWidth="14" strokeLinecap="round" />
-                <line x1="0" y1="435" x2="155" y2="405" stroke="rgba(0, 168, 135, 0.12)" strokeWidth="14" strokeLinecap="round" />
+                <line x1="0" y1="330" x2="145" y2="285" stroke="rgba(0, 168, 135, 0.12)" strokeWidth="15" strokeLinecap="round" />
+                <line x1="0" y1="460" x2="165" y2="425" stroke="rgba(0, 168, 135, 0.12)" strokeWidth="15" strokeLinecap="round" />
               </svg>
 
               {/* Title & Link */}
@@ -113,7 +190,7 @@ export default function PopularProductsSection({
               <div className="relative z-10"></div>
             </div>
 
-            {/* Right Area: Tabs + Product Cards (Strictly 3 Products, Reduced Card Width & Spaced Chevrons) */}
+            {/* Right Area: Tabs + Sliding Product Carousel */}
             <div className="flex-1 min-w-0 flex flex-col justify-between">
               
               {/* Top Bar: Tabs (DESCRIPTION with gold top line & SPECIFICATIONS) + View All >> */}
@@ -152,38 +229,43 @@ export default function PopularProductsSection({
                 </button>
               </div>
 
-              {/* Product Cards Track with Increased Chevron Spacing and Reduced Card Width */}
+              {/* Product Cards Track with Chevrons and Sliding Carousel */}
               <div className="relative flex-1 flex flex-col justify-between">
                 
-                {/* Chevrons with ample breathing room on both sides */}
+                {/* Chevrons */}
                 <button 
                   type="button"
-                  className="hidden sm:flex items-center justify-center absolute left-1 sm:left-2 lg:left-3 top-1/2 -translate-y-1/2 z-20 text-gray-400 hover:text-gray-800 transition-colors cursor-pointer p-2 rounded-full hover:bg-gray-100/60"
-                  aria-label="Previous"
+                  onClick={handlePrev}
+                  className="flex items-center justify-center absolute -left-2.5 sm:-left-3.5 top-1/2 -translate-y-1/2 z-30 text-gray-500 hover:text-gray-900 transition-colors cursor-pointer p-1.5 bg-white/90 hover:bg-white shadow-xs rounded-full"
+                  aria-label="Previous products"
                 >
                   <ChevronLeft className="w-5 h-5 stroke-[1.5]" />
                 </button>
                 <button 
                   type="button"
-                  className="hidden sm:flex items-center justify-center absolute right-1 sm:right-2 lg:right-3 top-1/2 -translate-y-1/2 z-20 text-gray-400 hover:text-gray-800 transition-colors cursor-pointer p-2 rounded-full hover:bg-gray-100/60"
-                  aria-label="Next"
+                  onClick={handleNext}
+                  className="flex items-center justify-center absolute -right-2.5 sm:-right-3.5 top-1/2 -translate-y-1/2 z-30 text-gray-500 hover:text-gray-900 transition-colors cursor-pointer p-1.5 bg-white/90 hover:bg-white shadow-xs rounded-full"
+                  aria-label="Next products"
                 >
                   <ChevronRight className="w-5 h-5 stroke-[1.5]" />
                 </button>
 
-                {/* Grid Layout: Inset with padding to leave empty space for chevrons and reduce card width */}
-                <div className="px-8 sm:px-11 lg:px-14 xl:px-16">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4 lg:gap-5 items-stretch">
+                {/* Sliding Cards Track: Tight gap between cards matching screenshot */}
+                <div className="overflow-hidden relative w-full flex-1">
+                  <div 
+                    className="flex gap-3 sm:gap-3.5 transition-transform duration-500 ease-in-out"
+                    style={{ transform: `translateX(-${currentIndex * slideStep}%)` }}
+                  >
                     {popularList.map((product) => {
                       const isAdded = addedIds.includes(product.id);
                       return (
                         <div
                           key={product.id}
                           onClick={() => onSelectProduct(product)}
-                          className="max-w-[260px] mx-auto w-full bg-white border border-gray-200/70 rounded-none overflow-hidden hover:shadow-md transition-shadow flex flex-col justify-between group cursor-pointer relative"
+                          className="w-[82%] sm:w-[48%] lg:w-[calc((100%-24px)/3.25)] flex-shrink-0 bg-white border border-gray-200/70 rounded-none overflow-hidden hover:shadow-md transition-shadow flex flex-col justify-between group cursor-pointer relative"
                         >
                           {/* Product Image Area */}
-                          <div className="relative h-48 sm:h-50 lg:h-54 xl:h-56 bg-white flex items-center justify-center p-3 overflow-hidden">
+                          <div className="relative h-48 sm:h-52 lg:h-56 bg-white flex items-center justify-center p-3 overflow-hidden">
                             <img
                               src={product.image}
                               alt={product.name}
@@ -247,8 +329,20 @@ export default function PopularProductsSection({
 
                 {/* Carousel bottom indicator: small black pill and gray dot centered */}
                 <div className="flex items-center justify-center gap-1.5 mt-5">
-                  <div className="w-6 h-1 bg-gray-900 rounded-full"></div>
-                  <div className="w-1.5 h-1.5 bg-gray-300 rounded-full"></div>
+                  {[0, 1, 2, 3].map((dotIdx) => {
+                    const isActive = Math.min(3, Math.floor(currentIndex * 4 / Math.max(1, maxIndex))) === dotIdx;
+                    return (
+                      <button
+                        key={dotIdx}
+                        type="button"
+                        onClick={() => setCurrentIndex(Math.min(maxIndex, Math.round(dotIdx * maxIndex / 3)))}
+                        className={`h-1 rounded-full transition-all cursor-pointer ${
+                          isActive ? 'w-6 bg-gray-900' : 'w-1.5 bg-gray-300 hover:bg-gray-400'
+                        }`}
+                        aria-label={`Go to slide ${dotIdx + 1}`}
+                      />
+                    );
+                  })}
                 </div>
 
               </div>
