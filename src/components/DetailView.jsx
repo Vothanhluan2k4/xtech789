@@ -7,6 +7,7 @@ export default function DetailView({
   searchTerm = '',
   onAddToCart,
   onBackToHome,
+  onBackToShop,
   onSelectProduct,
   onToggleWishlist,
   wishlistIds = []
@@ -75,19 +76,19 @@ export default function DetailView({
         {/* Navigation Breadcrumb & Back button */}
         <div className="flex flex-wrap items-center justify-between gap-3 mb-4 sm:mb-6">
           <nav className="flex items-center space-x-1.5 sm:space-x-2 text-xs sm:text-sm text-gray-500">
-            <button onClick={onBackToHome} className="hover:text-brand-900 font-medium">Home</button>
+            <button onClick={onBackToHome} className="hover:text-brand-900 font-medium cursor-pointer transition-colors">Home</button>
             <span>/</span>
-            <span onClick={onBackToHome} className="hover:text-brand-900 cursor-pointer">Shop</span>
+            <button onClick={onBackToShop || onBackToHome} className="hover:text-brand-900 cursor-pointer font-medium transition-colors">Shop</button>
             <span>/</span>
             <span className="text-brand-900 font-bold truncate max-w-[150px] sm:max-w-xs">{product.name}</span>
           </nav>
 
           <button
-            onClick={onBackToHome}
+            onClick={onBackToShop || onBackToHome}
             className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#511B57] hover:text-[#3D1442] bg-white px-3 sm:px-3.5 py-1.5 rounded-md border border-gray-200 shadow-sm transition-all cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>Back to Home</span>
+            <span>Back to Shop</span>
           </button>
         </div>
 

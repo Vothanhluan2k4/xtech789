@@ -29,7 +29,7 @@ const PhoneAltIcon = () => (
   </svg>
 );
 
-export default function Footer({ onNavigateHome }) {
+export default function Footer({ onNavigateHome, onNavigateShop }) {
   const quickLinks1 = [
     { label: 'Home', href: '#home' },
     { label: 'Our Shop', href: '#shop' },
@@ -55,6 +55,16 @@ export default function Footer({ onNavigateHome }) {
     { name: 'Visa Electron', src: '/images/payments/card_visa_electron.png', alt: 'Visa Electron' },
     { name: 'Maestro', src: '/images/payments/card_maestro.png', alt: 'Maestro' },
   ];
+
+  const handleLinkClick = (e, label) => {
+    if (label === 'Home') {
+      e.preventDefault();
+      onNavigateHome && onNavigateHome();
+    } else if (label === 'Our Shop') {
+      e.preventDefault();
+      onNavigateShop && onNavigateShop();
+    }
+  };
 
   return (
     <footer className="bg-brand-900 text-white">
@@ -94,13 +104,8 @@ export default function Footer({ onNavigateHome }) {
                 <li key={idx}>
                   <a
                     href={link.href}
-                    onClick={(e) => {
-                      if (link.label === 'Home') {
-                        e.preventDefault();
-                        onNavigateHome();
-                      }
-                    }}
-                    className="flex items-center gap-1.5 text-white/90 hover:text-white transition-colors py-0.5 group"
+                    onClick={(e) => handleLinkClick(e, link.label)}
+                    className="flex items-center gap-1.5 text-white/90 hover:text-white transition-colors py-0.5 group cursor-pointer"
                   >
                     <ChevronRight className="w-3.5 h-3.5 text-white stroke-[2.5] group-hover:translate-x-1 transition-transform" />
                     <span>{link.label}</span>
@@ -120,7 +125,8 @@ export default function Footer({ onNavigateHome }) {
                 <li key={idx}>
                   <a
                     href={link.href}
-                    className="flex items-center gap-1.5 text-white/90 hover:text-white transition-colors py-0.5 group"
+                    onClick={(e) => handleLinkClick(e, link.label)}
+                    className="flex items-center gap-1.5 text-white/90 hover:text-white transition-colors py-0.5 group cursor-pointer"
                   >
                     <ChevronRight className="w-3.5 h-3.5 text-white stroke-[2.5] group-hover:translate-x-1 transition-transform" />
                     <span>{link.label}</span>

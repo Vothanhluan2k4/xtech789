@@ -9,6 +9,7 @@ import AwardsSection from './components/AwardsSection';
 import NuSkinWaySection from './components/NuSkinWaySection';
 import NewsSection from './components/NewsSection';
 import DetailView from './components/DetailView';
+import ShopView from './components/ShopView';
 import Footer from './components/Footer';
 import CartDrawer from './components/CartDrawer';
 import WishlistDrawer from './components/WishlistDrawer';
@@ -16,7 +17,7 @@ import Toast from './components/Toast';
 import { products } from './data/products';
 
 export default function App() {
-  const [currentView, setCurrentView] = useState('home'); // 'home' | 'detail'
+  const [currentView, setCurrentView] = useState('home'); // 'home' | 'shop' | 'detail'
   const [selectedProduct, setSelectedProduct] = useState(products[0]);
   const [searchTerm, setSearchTerm] = useState('');
   const [cart, setCart] = useState([]);
@@ -155,32 +156,40 @@ export default function App() {
     }, 3000);
   };
 
-  // Search handler: Type query on Home -> click search -> display Detail view
+  // Search handler:
+  // - If exactly 1 matching result: open Detail view directly
+  // - If > 1 results (e.g. 2, 3...) or 0: open Home/Shop list view of products
   const handleSearch = (term) => {
     setSearchTerm(term);
-    if (!term) return;
+    if (!term || !term.trim()) {
+      setCurrentView('shop');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
 
-    // Find product matching name, category, tag, description or specifications
-    const found = products.find(
+    const trimmed = term.trim().toLowerCase();
+    const matching = products.filter(
       (p) =>
-        p.name.toLowerCase().includes(term.toLowerCase()) ||
-        p.tag?.toLowerCase().includes(term.toLowerCase()) ||
-        p.category.toLowerCase().includes(term.toLowerCase()) ||
-        p.description.toLowerCase().includes(term.toLowerCase()) ||
+        p.name.toLowerCase().includes(trimmed) ||
+        p.tag?.toLowerCase().includes(trimmed) ||
+        p.category.toLowerCase().includes(trimmed) ||
+        p.description.toLowerCase().includes(trimmed) ||
         p.specifications?.some(
           (s) =>
-            s.value.toLowerCase().includes(term.toLowerCase()) ||
-            s.key.toLowerCase().includes(term.toLowerCase())
+            s.value.toLowerCase().includes(trimmed) ||
+            s.key.toLowerCase().includes(trimmed)
         )
     );
 
-    if (found) {
-      setSelectedProduct(found);
+    if (matching.length === 1) {
+      // Exactly 1 product found -> Open detail directly
+      setSelectedProduct(matching[0]);
+      setCurrentView('detail');
     } else {
-      setSelectedProduct(products[0]);
+      // 2 or more products (e.g. Epoch has 3) -> Open Shop product list!
+      setCurrentView('shop');
     }
 
-    setCurrentView('detail');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -188,7 +197,6 @@ export default function App() {
   const handleSelectProduct = (product) => {
     const fullProduct = products.find((p) => p.id === product.id) || product;
     setSelectedProduct(fullProduct);
-    setSearchTerm('');
     setCurrentView('detail');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -197,6 +205,12 @@ export default function App() {
   const handleNavigateHome = () => {
     setCurrentView('home');
     setSearchTerm('');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Navigate to Shop
+  const handleNavigateShop = () => {
+    setCurrentView('shop');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -241,7 +255,7 @@ export default function App() {
         setIsMobileMenuOpen={setIsMobileMenuOpen}
       />
 
-      {/* 4. Main Content (Home or Detail) */}
+      {/* 4. Main Content (Home, Shop or Detail) */}
       <main className="flex-1">
         {currentView === 'detail' ? (
           <DetailView
@@ -249,7 +263,18 @@ export default function App() {
             searchTerm={searchTerm}
             onAddToCart={handleAddToCart}
             onBackToHome={handleNavigateHome}
+            onBackToShop={handleNavigateShop}
             onSelectProduct={handleSelectProduct}
+            onToggleWishlist={handleToggleWishlist}
+            wishlistIds={wishlistIds}
+          />
+        ) : currentView === 'shop' ? (
+          <ShopView
+            searchTerm={searchTerm}
+            onClearSearch={() => setSearchTerm('')}
+            onSelectProduct={handleSelectProduct}
+            onAddToCart={handleAddToCart}
+            onBackToHome={handleNavigateHome}
             onToggleWishlist={handleToggleWishlist}
             wishlistIds={wishlistIds}
           />
@@ -267,7 +292,7 @@ export default function App() {
             <PopularProductsSection
               onAddToCart={handleAddToCart}
               onSelectProduct={handleSelectProduct}
-              onViewAll={() => setCurrentView('detail')}
+              onViewAll={handleNavigateShop}
               onToggleWishlist={handleToggleWishlist}
               wishlistIds={wishlistIds}
             />
@@ -290,7 +315,10 @@ export default function App() {
       </main>
 
       {/* 5. Footer */}
-      <Footer onNavigateHome={handleNavigateHome} />
+      <Footer 
+        onNavigateHome={handleNavigateHome} 
+        onNavigateShop={handleNavigateShop}
+      />
 
       {/* Off-canvas Cart Drawer */}
       <CartDrawer

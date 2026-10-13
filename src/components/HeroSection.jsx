@@ -167,9 +167,17 @@ export default function HeroSection({
                 {navLinks.map((link) => (
                   <button
                     key={link.id}
-                    onClick={() => setCurrentView(link.id === 'detail' ? 'detail' : 'home')}
-                    className={`font-normal transition-colors flex items-center gap-1 ${
-                      link.id === 'home' && currentView === 'home'
+                    onClick={() => {
+                      if (link.id === 'shop') {
+                        setCurrentView('shop');
+                      } else if (link.id === 'detail') {
+                        setCurrentView('detail');
+                      } else {
+                        setCurrentView('home');
+                      }
+                    }}
+                    className={`font-normal transition-colors flex items-center gap-1 cursor-pointer ${
+                      currentView === link.id
                         ? 'text-[#d17b7b] font-medium'
                         : 'text-gray-700 hover:text-brand-900'
                     }`}

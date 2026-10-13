@@ -67,7 +67,13 @@ export default function Navbar({
             <button
               key={link.id}
               onClick={() => {
-                setCurrentView(link.id === 'detail' ? 'detail' : 'home');
+                if (link.id === 'shop') {
+                  setCurrentView('shop');
+                } else if (link.id === 'detail') {
+                  setCurrentView('detail');
+                } else {
+                  setCurrentView('home');
+                }
                 setIsMobileMenuOpen(false);
               }}
               className={`w-full text-left px-5 py-2.5 text-xs font-medium flex items-center justify-between ${
