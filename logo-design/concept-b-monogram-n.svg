@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title-b">
+  <title id="title-b">Nu Skin Monogram N</title>
+  <defs>
+    <linearGradient id="purpleGradB" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#511B57" />
+      <stop offset="100%" stop-color="#3A123E" />
+    </linearGradient>
+    <linearGradient id="goldGradB" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCE1BE" />
+      <stop offset="50%" stop-color="#E5AF78" />
+      <stop offset="100%" stop-color="#C68A50" />
+    </linearGradient>
+  </defs>
+  <!-- Background Rounded Squircle Tile -->
+  <rect width="256" height="256" rx="56" fill="url(#purpleGradB)" />
+
+  <!-- Left Stem of N -->
+  <rect x="54" y="52" width="32" height="152" rx="16" fill="#FFFFFF" />
+
+  <!-- Right Stem of N -->
+  <rect x="170" y="52" width="32" height="152" rx="16" fill="#FFFFFF" />
+
+  <!-- Dynamic Diagonal Bio-Swoosh connecting the pillars -->
+  <path d="M70 66 C96 90 148 152 186 190 C180 196 168 198 158 194 C128 162 92 108 68 76 C66 72 68 68 70 66 Z" fill="url(#goldGradB)" />
+
+  <!-- Radiance Vitality Droplet nestled inside N's apex -->
+  <path d="M142 82 C142 82 130 102 130 114 C130 120 135 126 142 126 C149 126 154 120 154 114 C154 102 142 82 142 82 Z" fill="url(#goldGradB)" />
+
+  <!-- Bottom Accent Dot -->
+  <circle cx="114" cy="174" r="7" fill="url(#goldGradB)" opacity="0.9" />
+</svg>
+

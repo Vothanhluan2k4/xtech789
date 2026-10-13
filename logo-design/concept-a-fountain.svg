@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title-a">
+  <title id="title-a">Nu Skin Fountain Emblem</title>
+  <defs>
+    <linearGradient id="purpleGradA" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#511B57" />
+      <stop offset="100%" stop-color="#351039" />
+    </linearGradient>
+    <linearGradient id="goldGradA" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F3C68F" />
+      <stop offset="100%" stop-color="#D4A373" />
+    </linearGradient>
+  </defs>
+  <!-- Background Tile for high favicon visibility -->
+  <rect width="256" height="256" rx="56" fill="url(#purpleGradA)" />
+  
+  <!-- Outer Radiance Ring Segment -->
+  <circle cx="128" cy="128" r="92" fill="none" stroke="url(#goldGradA)" stroke-width="6" opacity="0.4" stroke-dasharray="16 10" />
+
+  <!-- Center Rising Essence Droplet -->
+  <path d="M128 54 C128 54 110 84 110 102 C110 112 118 120 128 120 C138 120 146 112 146 102 C146 84 128 54 128 54 Z" fill="url(#goldGradA)" />
+
+  <!-- Symmetrical Dual Fountain Plumes -->
+  <!-- Left Plume -->
+  <path d="M128 206 C122 178 98 152 78 136 C60 122 52 102 56 84 C60 66 74 54 90 56 C102 58 110 68 108 80 C106 90 96 98 86 94 C76 90 74 78 78 72 C74 82 78 96 90 106 C104 118 122 140 125 174 Z" fill="#FFFFFF" />
+
+  <!-- Right Plume -->
+  <path d="M128 206 C134 178 158 152 178 136 C196 122 204 102 200 84 C196 66 182 54 166 56 C154 58 146 68 148 80 C150 90 160 98 170 94 C180 90 182 78 178 72 C182 82 178 96 166 106 C152 118 134 140 131 174 Z" fill="#FFFFFF" />
+  
+  <!-- Base Pedestal Droplet Anchor -->
+  <circle cx="128" cy="198" r="8" fill="url(#goldGradA)" />
+</svg>
+

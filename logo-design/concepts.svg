@@ -1,0 +1,349 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1600" height="840" viewBox="0 0 1600 840"><rect width="1600" height="840" fill="#f7f7f4"/><text x="60" y="78" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="40" font-weight="700" fill="#161616">Nu Skin — Favicon &amp; Brand Mark Concepts</text><text x="60" y="116" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="20" fill="#6b6b6b">Concepts for review — pick a direction (or tell me what you like in each).</text><rect x="60" y="150" width="474.667" height="630" rx="18" fill="#fff" stroke="#161616" stroke-width="2"/><g><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title-a-ref" viewBox="0 0 256 256" x="90" y="190" width="414.667" height="300" preserveAspectRatio="xMidYMid meet">
+  <title id="c0-title-a-ref">Nu Skin Fountain Icon</title>
+  <defs>
+    <linearGradient id="c0-purpleTile" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#511B57" />
+      <stop offset="100%" stop-color="#360F3A" />
+    </linearGradient>
+    <linearGradient id="c0-goldDrop" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5D2A4" />
+      <stop offset="100%" stop-color="#D4A373" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Tile (Rounded Squircle for Favicon / App Icon) -->
+  <rect width="256" height="256" rx="58" fill="url(#c0-purpleTile)" />
+
+  <!-- Center Floating Golden Droplet (Pure Essence) -->
+  <path d="M128 46 C128 46 104 84 104 106 C104 119 115 130 128 130 C141 130 152 119 152 106 C152 84 128 46 128 46 Z" fill="url(#c0-goldDrop)" />
+
+  <!-- Left Graceful Fountain Plume -->
+  <path d="M128 214 C120 180 94 150 72 132 C50 114 42 90 48 70 C54 50 72 38 90 42 C104 46 114 58 112 74 C110 88 98 98 84 94 C74 90 70 78 74 70 C70 82 76 96 90 108 C108 122 126 148 128 184 Z" fill="#FFFFFF" />
+
+  <!-- Right Graceful Fountain Plume (Exact Reflection) -->
+  <path d="M128 214 C136 180 162 150 184 132 C206 114 214 90 208 70 C202 50 184 38 166 42 C152 46 142 58 144 74 C146 88 158 98 172 94 C182 90 186 78 182 70 C186 82 180 96 166 108 C148 122 130 148 128 184 Z" fill="#FFFFFF" />
+
+  <!-- Base Anchor Gem -->
+  <circle cx="128" cy="204" r="10" fill="url(#c0-goldDrop)" />
+</svg>
+</g><g><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title-a-ref" viewBox="0 0 256 256" x="90" y="516" width="64" height="64" preserveAspectRatio="xMidYMid meet">
+  <title id="s064-title-a-ref">Nu Skin Fountain Icon</title>
+  <defs>
+    <linearGradient id="s064-purpleTile" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#511B57" />
+      <stop offset="100%" stop-color="#360F3A" />
+    </linearGradient>
+    <linearGradient id="s064-goldDrop" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5D2A4" />
+      <stop offset="100%" stop-color="#D4A373" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Tile (Rounded Squircle for Favicon / App Icon) -->
+  <rect width="256" height="256" rx="58" fill="url(#s064-purpleTile)" />
+
+  <!-- Center Floating Golden Droplet (Pure Essence) -->
+  <path d="M128 46 C128 46 104 84 104 106 C104 119 115 130 128 130 C141 130 152 119 152 106 C152 84 128 46 128 46 Z" fill="url(#s064-goldDrop)" />
+
+  <!-- Left Graceful Fountain Plume -->
+  <path d="M128 214 C120 180 94 150 72 132 C50 114 42 90 48 70 C54 50 72 38 90 42 C104 46 114 58 112 74 C110 88 98 98 84 94 C74 90 70 78 74 70 C70 82 76 96 90 108 C108 122 126 148 128 184 Z" fill="#FFFFFF" />
+
+  <!-- Right Graceful Fountain Plume (Exact Reflection) -->
+  <path d="M128 214 C136 180 162 150 184 132 C206 114 214 90 208 70 C202 50 184 38 166 42 C152 46 142 58 144 74 C146 88 158 98 172 94 C182 90 186 78 182 70 C186 82 180 96 166 108 C148 122 130 148 128 184 Z" fill="#FFFFFF" />
+
+  <!-- Base Anchor Gem -->
+  <circle cx="128" cy="204" r="10" fill="url(#s064-goldDrop)" />
+</svg>
+</g><text x="122" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">64px</text><g><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title-a-ref" viewBox="0 0 256 256" x="180" y="548" width="32" height="32" preserveAspectRatio="xMidYMid meet">
+  <title id="s032-title-a-ref">Nu Skin Fountain Icon</title>
+  <defs>
+    <linearGradient id="s032-purpleTile" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#511B57" />
+      <stop offset="100%" stop-color="#360F3A" />
+    </linearGradient>
+    <linearGradient id="s032-goldDrop" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5D2A4" />
+      <stop offset="100%" stop-color="#D4A373" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Tile (Rounded Squircle for Favicon / App Icon) -->
+  <rect width="256" height="256" rx="58" fill="url(#s032-purpleTile)" />
+
+  <!-- Center Floating Golden Droplet (Pure Essence) -->
+  <path d="M128 46 C128 46 104 84 104 106 C104 119 115 130 128 130 C141 130 152 119 152 106 C152 84 128 46 128 46 Z" fill="url(#s032-goldDrop)" />
+
+  <!-- Left Graceful Fountain Plume -->
+  <path d="M128 214 C120 180 94 150 72 132 C50 114 42 90 48 70 C54 50 72 38 90 42 C104 46 114 58 112 74 C110 88 98 98 84 94 C74 90 70 78 74 70 C70 82 76 96 90 108 C108 122 126 148 128 184 Z" fill="#FFFFFF" />
+
+  <!-- Right Graceful Fountain Plume (Exact Reflection) -->
+  <path d="M128 214 C136 180 162 150 184 132 C206 114 214 90 208 70 C202 50 184 38 166 42 C152 46 142 58 144 74 C146 88 158 98 172 94 C182 90 186 78 182 70 C186 82 180 96 166 108 C148 122 130 148 128 184 Z" fill="#FFFFFF" />
+
+  <!-- Base Anchor Gem -->
+  <circle cx="128" cy="204" r="10" fill="url(#s032-goldDrop)" />
+</svg>
+</g><text x="196" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">32px</text><g><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title-a-ref" viewBox="0 0 256 256" x="238" y="564" width="16" height="16" preserveAspectRatio="xMidYMid meet">
+  <title id="s016-title-a-ref">Nu Skin Fountain Icon</title>
+  <defs>
+    <linearGradient id="s016-purpleTile" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#511B57" />
+      <stop offset="100%" stop-color="#360F3A" />
+    </linearGradient>
+    <linearGradient id="s016-goldDrop" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5D2A4" />
+      <stop offset="100%" stop-color="#D4A373" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Tile (Rounded Squircle for Favicon / App Icon) -->
+  <rect width="256" height="256" rx="58" fill="url(#s016-purpleTile)" />
+
+  <!-- Center Floating Golden Droplet (Pure Essence) -->
+  <path d="M128 46 C128 46 104 84 104 106 C104 119 115 130 128 130 C141 130 152 119 152 106 C152 84 128 46 128 46 Z" fill="url(#s016-goldDrop)" />
+
+  <!-- Left Graceful Fountain Plume -->
+  <path d="M128 214 C120 180 94 150 72 132 C50 114 42 90 48 70 C54 50 72 38 90 42 C104 46 114 58 112 74 C110 88 98 98 84 94 C74 90 70 78 74 70 C70 82 76 96 90 108 C108 122 126 148 128 184 Z" fill="#FFFFFF" />
+
+  <!-- Right Graceful Fountain Plume (Exact Reflection) -->
+  <path d="M128 214 C136 180 162 150 184 132 C206 114 214 90 208 70 C202 50 184 38 166 42 C152 46 142 58 144 74 C146 88 158 98 172 94 C182 90 186 78 182 70 C186 82 180 96 166 108 C148 122 130 148 128 184 Z" fill="#FFFFFF" />
+
+  <!-- Base Anchor Gem -->
+  <circle cx="128" cy="204" r="10" fill="url(#s016-goldDrop)" />
+</svg>
+</g><text x="246" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">16px</text><text x="90.0" y="636" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="26" font-weight="700" fill="#161616">A · Fountain of Radiance</text><text x="90.0" y="664" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#161616" letter-spacing="1.5">RECOMMENDED</text><text x="90.0" y="698" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">Nu Skin iconic fountain modernized: dual</text><text x="90.0" y="724" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">plumes cradling gold essence.</text><rect x="562.667" y="150" width="474.667" height="630" rx="18" fill="#fff" stroke="#e4e4e0" stroke-width="1"/><g><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title-b" viewBox="0 0 256 256" x="592.667" y="190" width="414.667" height="300" preserveAspectRatio="xMidYMid meet">
+  <title id="c1-title-b">Nu Skin Monogram N</title>
+  <defs>
+    <linearGradient id="c1-purpleGradB" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#511B57" />
+      <stop offset="100%" stop-color="#3A123E" />
+    </linearGradient>
+    <linearGradient id="c1-goldGradB" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCE1BE" />
+      <stop offset="50%" stop-color="#E5AF78" />
+      <stop offset="100%" stop-color="#C68A50" />
+    </linearGradient>
+  </defs>
+  <!-- Background Rounded Squircle Tile -->
+  <rect width="256" height="256" rx="56" fill="url(#c1-purpleGradB)" />
+
+  <!-- Left Stem of N -->
+  <rect x="54" y="52" width="32" height="152" rx="16" fill="#FFFFFF" />
+
+  <!-- Right Stem of N -->
+  <rect x="170" y="52" width="32" height="152" rx="16" fill="#FFFFFF" />
+
+  <!-- Dynamic Diagonal Bio-Swoosh connecting the pillars -->
+  <path d="M70 66 C96 90 148 152 186 190 C180 196 168 198 158 194 C128 162 92 108 68 76 C66 72 68 68 70 66 Z" fill="url(#c1-goldGradB)" />
+
+  <!-- Radiance Vitality Droplet nestled inside N's apex -->
+  <path d="M142 82 C142 82 130 102 130 114 C130 120 135 126 142 126 C149 126 154 120 154 114 C154 102 142 82 142 82 Z" fill="url(#c1-goldGradB)" />
+
+  <!-- Bottom Accent Dot -->
+  <circle cx="114" cy="174" r="7" fill="url(#c1-goldGradB)" opacity="0.9" />
+</svg>
+</g><g><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title-b" viewBox="0 0 256 256" x="592.667" y="516" width="64" height="64" preserveAspectRatio="xMidYMid meet">
+  <title id="s164-title-b">Nu Skin Monogram N</title>
+  <defs>
+    <linearGradient id="s164-purpleGradB" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#511B57" />
+      <stop offset="100%" stop-color="#3A123E" />
+    </linearGradient>
+    <linearGradient id="s164-goldGradB" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCE1BE" />
+      <stop offset="50%" stop-color="#E5AF78" />
+      <stop offset="100%" stop-color="#C68A50" />
+    </linearGradient>
+  </defs>
+  <!-- Background Rounded Squircle Tile -->
+  <rect width="256" height="256" rx="56" fill="url(#s164-purpleGradB)" />
+
+  <!-- Left Stem of N -->
+  <rect x="54" y="52" width="32" height="152" rx="16" fill="#FFFFFF" />
+
+  <!-- Right Stem of N -->
+  <rect x="170" y="52" width="32" height="152" rx="16" fill="#FFFFFF" />
+
+  <!-- Dynamic Diagonal Bio-Swoosh connecting the pillars -->
+  <path d="M70 66 C96 90 148 152 186 190 C180 196 168 198 158 194 C128 162 92 108 68 76 C66 72 68 68 70 66 Z" fill="url(#s164-goldGradB)" />
+
+  <!-- Radiance Vitality Droplet nestled inside N's apex -->
+  <path d="M142 82 C142 82 130 102 130 114 C130 120 135 126 142 126 C149 126 154 120 154 114 C154 102 142 82 142 82 Z" fill="url(#s164-goldGradB)" />
+
+  <!-- Bottom Accent Dot -->
+  <circle cx="114" cy="174" r="7" fill="url(#s164-goldGradB)" opacity="0.9" />
+</svg>
+</g><text x="624.667" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">64px</text><g><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title-b" viewBox="0 0 256 256" x="682.667" y="548" width="32" height="32" preserveAspectRatio="xMidYMid meet">
+  <title id="s132-title-b">Nu Skin Monogram N</title>
+  <defs>
+    <linearGradient id="s132-purpleGradB" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#511B57" />
+      <stop offset="100%" stop-color="#3A123E" />
+    </linearGradient>
+    <linearGradient id="s132-goldGradB" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCE1BE" />
+      <stop offset="50%" stop-color="#E5AF78" />
+      <stop offset="100%" stop-color="#C68A50" />
+    </linearGradient>
+  </defs>
+  <!-- Background Rounded Squircle Tile -->
+  <rect width="256" height="256" rx="56" fill="url(#s132-purpleGradB)" />
+
+  <!-- Left Stem of N -->
+  <rect x="54" y="52" width="32" height="152" rx="16" fill="#FFFFFF" />
+
+  <!-- Right Stem of N -->
+  <rect x="170" y="52" width="32" height="152" rx="16" fill="#FFFFFF" />
+
+  <!-- Dynamic Diagonal Bio-Swoosh connecting the pillars -->
+  <path d="M70 66 C96 90 148 152 186 190 C180 196 168 198 158 194 C128 162 92 108 68 76 C66 72 68 68 70 66 Z" fill="url(#s132-goldGradB)" />
+
+  <!-- Radiance Vitality Droplet nestled inside N's apex -->
+  <path d="M142 82 C142 82 130 102 130 114 C130 120 135 126 142 126 C149 126 154 120 154 114 C154 102 142 82 142 82 Z" fill="url(#s132-goldGradB)" />
+
+  <!-- Bottom Accent Dot -->
+  <circle cx="114" cy="174" r="7" fill="url(#s132-goldGradB)" opacity="0.9" />
+</svg>
+</g><text x="698.667" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">32px</text><g><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title-b" viewBox="0 0 256 256" x="740.667" y="564" width="16" height="16" preserveAspectRatio="xMidYMid meet">
+  <title id="s116-title-b">Nu Skin Monogram N</title>
+  <defs>
+    <linearGradient id="s116-purpleGradB" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#511B57" />
+      <stop offset="100%" stop-color="#3A123E" />
+    </linearGradient>
+    <linearGradient id="s116-goldGradB" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCE1BE" />
+      <stop offset="50%" stop-color="#E5AF78" />
+      <stop offset="100%" stop-color="#C68A50" />
+    </linearGradient>
+  </defs>
+  <!-- Background Rounded Squircle Tile -->
+  <rect width="256" height="256" rx="56" fill="url(#s116-purpleGradB)" />
+
+  <!-- Left Stem of N -->
+  <rect x="54" y="52" width="32" height="152" rx="16" fill="#FFFFFF" />
+
+  <!-- Right Stem of N -->
+  <rect x="170" y="52" width="32" height="152" rx="16" fill="#FFFFFF" />
+
+  <!-- Dynamic Diagonal Bio-Swoosh connecting the pillars -->
+  <path d="M70 66 C96 90 148 152 186 190 C180 196 168 198 158 194 C128 162 92 108 68 76 C66 72 68 68 70 66 Z" fill="url(#s116-goldGradB)" />
+
+  <!-- Radiance Vitality Droplet nestled inside N's apex -->
+  <path d="M142 82 C142 82 130 102 130 114 C130 120 135 126 142 126 C149 126 154 120 154 114 C154 102 142 82 142 82 Z" fill="url(#s116-goldGradB)" />
+
+  <!-- Bottom Accent Dot -->
+  <circle cx="114" cy="174" r="7" fill="url(#s116-goldGradB)" opacity="0.9" />
+</svg>
+</g><text x="748.667" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">16px</text><text x="592.6666666666667" y="636" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="26" font-weight="700" fill="#161616">B · Monogram N</text><text x="592.6666666666667" y="670" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">Bold geometric letter N with dynamic</text><text x="592.6666666666667" y="696" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">botanical diagonal bridge.</text><rect x="1065.33" y="150" width="474.667" height="630" rx="18" fill="#fff" stroke="#e4e4e0" stroke-width="1"/><g><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title-c" viewBox="0 0 256 256" x="1095.33" y="190" width="414.667" height="300" preserveAspectRatio="xMidYMid meet">
+  <title id="c2-title-c">Nu Skin Bio-Radiance Emblem</title>
+  <defs>
+    <linearGradient id="c2-purpleGradC" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#511B57" />
+      <stop offset="100%" stop-color="#2D0B32" />
+    </linearGradient>
+    <linearGradient id="c2-goldGradC" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCE1BE" />
+      <stop offset="50%" stop-color="#E5AF78" />
+      <stop offset="100%" stop-color="#C68A50" />
+    </linearGradient>
+  </defs>
+  <!-- Background Tile -->
+  <rect width="256" height="256" rx="56" fill="url(#c2-purpleGradC)" />
+
+  <!-- Outer Interlocking Arch / Ribbon 1: Nature (White) -->
+  <path d="M128 42 C80 42 48 78 48 126 C48 166 74 198 108 210 C104 196 102 180 106 166 C86 156 74 138 74 122 C74 92 98 66 128 66 C144 66 158 72 168 82 C172 74 178 66 186 60 C170 48 150 42 128 42 Z" fill="#FFFFFF" />
+
+  <!-- Outer Interlocking Arch / Ribbon 2: Science (Gold) -->
+  <path d="M128 214 C176 214 208 178 208 130 C208 90 182 58 148 46 C152 60 154 76 150 90 C170 100 182 118 182 134 C182 164 158 190 128 190 C112 190 98 184 88 174 C84 182 78 190 70 196 C86 208 106 214 128 214 Z" fill="url(#c2-goldGradC)" />
+
+  <!-- Central Essence Core Droplet -->
+  <path d="M128 86 C128 86 106 120 106 138 C106 150 116 160 128 160 C140 160 150 150 150 138 C150 120 128 86 128 86 Z" fill="url(#c2-goldGradC)" />
+
+  <!-- Inner Droplet Core Highlight -->
+  <circle cx="124" cy="132" r="5" fill="#FFFFFF" opacity="0.9" />
+</svg>
+</g><g><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title-c" viewBox="0 0 256 256" x="1095.33" y="516" width="64" height="64" preserveAspectRatio="xMidYMid meet">
+  <title id="s264-title-c">Nu Skin Bio-Radiance Emblem</title>
+  <defs>
+    <linearGradient id="s264-purpleGradC" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#511B57" />
+      <stop offset="100%" stop-color="#2D0B32" />
+    </linearGradient>
+    <linearGradient id="s264-goldGradC" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCE1BE" />
+      <stop offset="50%" stop-color="#E5AF78" />
+      <stop offset="100%" stop-color="#C68A50" />
+    </linearGradient>
+  </defs>
+  <!-- Background Tile -->
+  <rect width="256" height="256" rx="56" fill="url(#s264-purpleGradC)" />
+
+  <!-- Outer Interlocking Arch / Ribbon 1: Nature (White) -->
+  <path d="M128 42 C80 42 48 78 48 126 C48 166 74 198 108 210 C104 196 102 180 106 166 C86 156 74 138 74 122 C74 92 98 66 128 66 C144 66 158 72 168 82 C172 74 178 66 186 60 C170 48 150 42 128 42 Z" fill="#FFFFFF" />
+
+  <!-- Outer Interlocking Arch / Ribbon 2: Science (Gold) -->
+  <path d="M128 214 C176 214 208 178 208 130 C208 90 182 58 148 46 C152 60 154 76 150 90 C170 100 182 118 182 134 C182 164 158 190 128 190 C112 190 98 184 88 174 C84 182 78 190 70 196 C86 208 106 214 128 214 Z" fill="url(#s264-goldGradC)" />
+
+  <!-- Central Essence Core Droplet -->
+  <path d="M128 86 C128 86 106 120 106 138 C106 150 116 160 128 160 C140 160 150 150 150 138 C150 120 128 86 128 86 Z" fill="url(#s264-goldGradC)" />
+
+  <!-- Inner Droplet Core Highlight -->
+  <circle cx="124" cy="132" r="5" fill="#FFFFFF" opacity="0.9" />
+</svg>
+</g><text x="1127.33" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">64px</text><g><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title-c" viewBox="0 0 256 256" x="1185.33" y="548" width="32" height="32" preserveAspectRatio="xMidYMid meet">
+  <title id="s232-title-c">Nu Skin Bio-Radiance Emblem</title>
+  <defs>
+    <linearGradient id="s232-purpleGradC" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#511B57" />
+      <stop offset="100%" stop-color="#2D0B32" />
+    </linearGradient>
+    <linearGradient id="s232-goldGradC" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCE1BE" />
+      <stop offset="50%" stop-color="#E5AF78" />
+      <stop offset="100%" stop-color="#C68A50" />
+    </linearGradient>
+  </defs>
+  <!-- Background Tile -->
+  <rect width="256" height="256" rx="56" fill="url(#s232-purpleGradC)" />
+
+  <!-- Outer Interlocking Arch / Ribbon 1: Nature (White) -->
+  <path d="M128 42 C80 42 48 78 48 126 C48 166 74 198 108 210 C104 196 102 180 106 166 C86 156 74 138 74 122 C74 92 98 66 128 66 C144 66 158 72 168 82 C172 74 178 66 186 60 C170 48 150 42 128 42 Z" fill="#FFFFFF" />
+
+  <!-- Outer Interlocking Arch / Ribbon 2: Science (Gold) -->
+  <path d="M128 214 C176 214 208 178 208 130 C208 90 182 58 148 46 C152 60 154 76 150 90 C170 100 182 118 182 134 C182 164 158 190 128 190 C112 190 98 184 88 174 C84 182 78 190 70 196 C86 208 106 214 128 214 Z" fill="url(#s232-goldGradC)" />
+
+  <!-- Central Essence Core Droplet -->
+  <path d="M128 86 C128 86 106 120 106 138 C106 150 116 160 128 160 C140 160 150 150 150 138 C150 120 128 86 128 86 Z" fill="url(#s232-goldGradC)" />
+
+  <!-- Inner Droplet Core Highlight -->
+  <circle cx="124" cy="132" r="5" fill="#FFFFFF" opacity="0.9" />
+</svg>
+</g><text x="1201.33" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">32px</text><g><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title-c" viewBox="0 0 256 256" x="1243.33" y="564" width="16" height="16" preserveAspectRatio="xMidYMid meet">
+  <title id="s216-title-c">Nu Skin Bio-Radiance Emblem</title>
+  <defs>
+    <linearGradient id="s216-purpleGradC" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#511B57" />
+      <stop offset="100%" stop-color="#2D0B32" />
+    </linearGradient>
+    <linearGradient id="s216-goldGradC" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCE1BE" />
+      <stop offset="50%" stop-color="#E5AF78" />
+      <stop offset="100%" stop-color="#C68A50" />
+    </linearGradient>
+  </defs>
+  <!-- Background Tile -->
+  <rect width="256" height="256" rx="56" fill="url(#s216-purpleGradC)" />
+
+  <!-- Outer Interlocking Arch / Ribbon 1: Nature (White) -->
+  <path d="M128 42 C80 42 48 78 48 126 C48 166 74 198 108 210 C104 196 102 180 106 166 C86 156 74 138 74 122 C74 92 98 66 128 66 C144 66 158 72 168 82 C172 74 178 66 186 60 C170 48 150 42 128 42 Z" fill="#FFFFFF" />
+
+  <!-- Outer Interlocking Arch / Ribbon 2: Science (Gold) -->
+  <path d="M128 214 C176 214 208 178 208 130 C208 90 182 58 148 46 C152 60 154 76 150 90 C170 100 182 118 182 134 C182 164 158 190 128 190 C112 190 98 184 88 174 C84 182 78 190 70 196 C86 208 106 214 128 214 Z" fill="url(#s216-goldGradC)" />
+
+  <!-- Central Essence Core Droplet -->
+  <path d="M128 86 C128 86 106 120 106 138 C106 150 116 160 128 160 C140 160 150 150 150 138 C150 120 128 86 128 86 Z" fill="url(#s216-goldGradC)" />
+
+  <!-- Inner Droplet Core Highlight -->
+  <circle cx="124" cy="132" r="5" fill="#FFFFFF" opacity="0.9" />
+</svg>
+</g><text x="1251.33" y="600" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8a8a8a" text-anchor="middle">16px</text><text x="1095.3333333333335" y="636" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="26" font-weight="700" fill="#161616">C · Bio-Helix Droplet</text><text x="1095.3333333333335" y="670" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">Nature and science interlocking ribbons</text><text x="1095.3333333333335" y="696" font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" fill="#555">embracing pure essence core.</text></svg>

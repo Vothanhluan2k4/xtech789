@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title-c">
+  <title id="title-c">Nu Skin Bio-Radiance Emblem</title>
+  <defs>
+    <linearGradient id="purpleGradC" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#511B57" />
+      <stop offset="100%" stop-color="#2D0B32" />
+    </linearGradient>
+    <linearGradient id="goldGradC" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCE1BE" />
+      <stop offset="50%" stop-color="#E5AF78" />
+      <stop offset="100%" stop-color="#C68A50" />
+    </linearGradient>
+  </defs>
+  <!-- Background Tile -->
+  <rect width="256" height="256" rx="56" fill="url(#purpleGradC)" />
+
+  <!-- Outer Interlocking Arch / Ribbon 1: Nature (White) -->
+  <path d="M128 42 C80 42 48 78 48 126 C48 166 74 198 108 210 C104 196 102 180 106 166 C86 156 74 138 74 122 C74 92 98 66 128 66 C144 66 158 72 168 82 C172 74 178 66 186 60 C170 48 150 42 128 42 Z" fill="#FFFFFF" />
+
+  <!-- Outer Interlocking Arch / Ribbon 2: Science (Gold) -->
+  <path d="M128 214 C176 214 208 178 208 130 C208 90 182 58 148 46 C152 60 154 76 150 90 C170 100 182 118 182 134 C182 164 158 190 128 190 C112 190 98 184 88 174 C84 182 78 190 70 196 C86 208 106 214 128 214 Z" fill="url(#goldGradC)" />
+
+  <!-- Central Essence Core Droplet -->
+  <path d="M128 86 C128 86 106 120 106 138 C106 150 116 160 128 160 C140 160 150 150 150 138 C150 120 128 86 128 86 Z" fill="url(#goldGradC)" />
+
+  <!-- Inner Droplet Core Highlight -->
+  <circle cx="124" cy="132" r="5" fill="#FFFFFF" opacity="0.9" />
+</svg>
+

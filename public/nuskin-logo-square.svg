@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256"><title>Nu Skin</title><g transform="translate(20.48 20.48) scale(0.84)">
+  <title id="title-a-ref">Nu Skin Fountain Icon</title>
+  <defs>
+    <linearGradient id="purpleTile" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#511B57" />
+      <stop offset="100%" stop-color="#360F3A" />
+    </linearGradient>
+    <linearGradient id="goldDrop" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5D2A4" />
+      <stop offset="100%" stop-color="#D4A373" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Tile (Rounded Squircle for Favicon / App Icon) -->
+  <rect width="256" height="256" rx="58" fill="url(#purpleTile)" />
+
+  <!-- Center Floating Golden Droplet (Pure Essence) -->
+  <path d="M128 46 C128 46 104 84 104 106 C104 119 115 130 128 130 C141 130 152 119 152 106 C152 84 128 46 128 46 Z" fill="url(#goldDrop)" />
+
+  <!-- Left Graceful Fountain Plume -->
+  <path d="M128 214 C120 180 94 150 72 132 C50 114 42 90 48 70 C54 50 72 38 90 42 C104 46 114 58 112 74 C110 88 98 98 84 94 C74 90 70 78 74 70 C70 82 76 96 90 108 C108 122 126 148 128 184 Z" fill="#FFFFFF" />
+
+  <!-- Right Graceful Fountain Plume (Exact Reflection) -->
+  <path d="M128 214 C136 180 162 150 184 132 C206 114 214 90 208 70 C202 50 184 38 166 42 C152 46 142 58 144 74 C146 88 158 98 172 94 C182 90 186 78 182 70 C186 82 180 96 166 108 C148 122 130 148 128 184 Z" fill="#FFFFFF" />
+
+  <!-- Base Anchor Gem -->
+  <circle cx="128" cy="204" r="10" fill="url(#goldDrop)" />
+</g></svg>
