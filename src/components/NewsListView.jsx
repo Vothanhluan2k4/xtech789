@@ -345,3 +345,4 @@ export default function NewsListView({ onBackToHome, onNavigateShop }) {
     </div>
   );
 }
+

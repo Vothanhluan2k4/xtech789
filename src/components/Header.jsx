@@ -82,8 +82,8 @@ export default function Header({
       <div className="container mx-auto">
         <div className="flex items-center justify-between gap-4">
           
-          {/* Mobile Menu & Brand */}
-          <div className="flex items-center gap-2 lg:hidden">
+          {/* Mobile Menu Button */}
+          <div className="flex items-center lg:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-1.5 sm:p-2 rounded text-brand-900 hover:bg-gray-100 transition-colors"
@@ -91,22 +91,6 @@ export default function Header({
             >
               {isMobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
             </button>
-            <div 
-              onClick={onNavigateHome}
-              className="cursor-pointer select-none font-bold text-base tracking-widest text-brand-900 flex items-center"
-            >
-              NU SKIN
-            </div>
-          </div>
-
-          {/* Left Brand on Desktop */}
-          <div 
-            onClick={onNavigateHome}
-            className="cursor-pointer select-none hidden lg:flex items-center w-48 xl:w-64"
-          >
-            <span className="font-extrabold text-xl tracking-[0.2em] text-brand-900 hover:opacity-85 transition-opacity">
-              NU SKIN
-            </span>
           </div>
 
           {/* Centered Search Bar with Live Suggestions */}
