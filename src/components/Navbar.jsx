@@ -17,6 +17,21 @@ export default function Navbar({
     { id: 'contact', label: 'Contact' },
   ];
 
+  // Lock body scroll and listen for Escape key when mobile menu is open
+  React.useEffect(() => {
+    if (!isMobileMenuOpen) return;
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setIsMobileMenuOpen(false);
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    const originalStyle = window.getComputedStyle(document.body).overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = originalStyle;
+    };
+  }, [isMobileMenuOpen, setIsMobileMenuOpen]);
+
   if (!isMobileMenuOpen) return null;
 
   return (

@@ -39,10 +39,26 @@ export default function HeroSection({
   const [currentIndex, setCurrentIndex] = useState(1);
   const [isTransitioning, setIsTransitioning] = useState(true);
   const [isPaused, setIsPaused] = useState(false);
+  const [touchStartX, setTouchStartX] = useState(0);
   const isSlidingRef = useRef(false);
 
   // Active original slide index for indicator dots (0 to slides.length - 1)
   const activeRealIndex = (currentIndex - 1 + slides.length) % slides.length;
+
+  const handleTouchStart = (e) => {
+    setIsPaused(true);
+    setTouchStartX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = (e) => {
+    setIsPaused(false);
+    const touchEndX = e.changedTouches[0].clientX;
+    if (touchStartX - touchEndX > 50) {
+      handleNext();
+    } else if (touchStartX - touchEndX < -50) {
+      handlePrev();
+    }
+  };
 
   const handleNext = () => {
     if (isSlidingRef.current) return;
@@ -171,11 +187,13 @@ export default function HeroSection({
               </div>
             </div>
 
-            {/* Main Banner: 3s Autoplay Infinite Sliding Track Carousel */}
+            {/* Main Banner: 3s Autoplay Infinite Sliding Track Carousel with Touch Swipe */}
             <div 
-              className="relative rounded overflow-hidden shadow-sm h-[320px] sm:h-[380px] lg:h-[415px] group bg-black/10 select-none"
+              className="relative rounded overflow-hidden shadow-sm h-[260px] sm:h-[340px] md:h-[380px] lg:h-[415px] group bg-black/10 select-none"
               onMouseEnter={() => setIsPaused(true)}
               onMouseLeave={() => setIsPaused(false)}
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
             >
               {/* Seamless Sliding Carousel Track */}
               <div 
@@ -197,17 +215,17 @@ export default function HeroSection({
                     />
 
                     {/* Overlay with Sharp Vector Typography */}
-                    <div className="absolute inset-0 bg-black/25 flex flex-col items-center justify-center text-center p-6 select-none z-10 pointer-events-none">
-                      <span className="text-white text-xs sm:text-sm md:text-base font-semibold tracking-widest uppercase mb-1 drop-shadow-md">
+                    <div className="absolute inset-0 bg-black/25 flex flex-col items-center justify-center text-center p-4 sm:p-6 select-none z-10 pointer-events-none">
+                      <span className="text-white text-[11px] sm:text-sm md:text-base font-semibold tracking-widest uppercase mb-1 drop-shadow-md">
                         {slide.subtitle}
                       </span>
-                      <h2 className="text-white text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-5 drop-shadow-lg">
+                      <h2 className="text-white text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-3 sm:mb-5 drop-shadow-lg">
                         {slide.title}
                       </h2>
                       <div className="pointer-events-auto">
                         <button
                           onClick={() => onShopNow("Reasonable Price")}
-                          className="bg-white hover:bg-gray-100 text-gray-900 text-xs sm:text-sm font-semibold px-6 py-2.5 shadow-md transition-all active:scale-95 cursor-pointer"
+                          className="bg-white hover:bg-gray-100 text-gray-900 text-xs sm:text-sm font-semibold px-5 sm:px-6 py-2 sm:py-2.5 shadow-md transition-all active:scale-95 cursor-pointer"
                         >
                           Shop Now
                         </button>

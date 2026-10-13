@@ -15,6 +15,7 @@ export default function DetailView({
   const [activeTab, setActiveTab] = useState('specifications');
   const [isAdded, setIsAdded] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
 
   // Reset selected image whenever active product changes
   useEffect(() => {
@@ -33,6 +34,20 @@ export default function DetailView({
     onAddToCart({ ...product, quantity });
     setIsAdded(true);
     setTimeout(() => setIsAdded(false), 2000);
+  };
+
+  const handleTouchStart = (e) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = (e) => {
+    const touchEnd = e.changedTouches[0].clientX;
+    if (galleryImages.length <= 1) return;
+    if (touchStart - touchEnd > 50) {
+      setSelectedImageIndex((prev) => (prev < galleryImages.length - 1 ? prev + 1 : 0));
+    } else if (touchStart - touchEnd < -50) {
+      setSelectedImageIndex((prev) => (prev > 0 ? prev - 1 : galleryImages.length - 1));
+    }
   };
 
   // Find all matching products if searchTerm exists
@@ -54,22 +69,22 @@ export default function DetailView({
   const displayList = matchingProducts.length > 0 ? matchingProducts : products.slice(0, 8);
 
   return (
-    <div className="py-6 sm:py-10 bg-gray-50 min-h-screen">
+    <div className="py-4 sm:py-10 bg-gray-50 min-h-screen">
       <div className="container mx-auto">
         
         {/* Navigation Breadcrumb & Back button */}
-        <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
-          <nav className="flex items-center space-x-2 text-xs sm:text-sm text-gray-500">
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-4 sm:mb-6">
+          <nav className="flex items-center space-x-1.5 sm:space-x-2 text-xs sm:text-sm text-gray-500">
             <button onClick={onBackToHome} className="hover:text-brand-900 font-medium">Home</button>
             <span>/</span>
             <span onClick={onBackToHome} className="hover:text-brand-900 cursor-pointer">Shop</span>
             <span>/</span>
-            <span className="text-brand-900 font-bold truncate max-w-xs">{product.name}</span>
+            <span className="text-brand-900 font-bold truncate max-w-[150px] sm:max-w-xs">{product.name}</span>
           </nav>
 
           <button
             onClick={onBackToHome}
-            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#511B57] hover:text-[#3D1442] bg-white px-3.5 py-1.5 rounded-md border border-gray-200 shadow-sm transition-all"
+            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#511B57] hover:text-[#3D1442] bg-white px-3 sm:px-3.5 py-1.5 rounded-md border border-gray-200 shadow-sm transition-all cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Back to Home</span>
@@ -97,12 +112,16 @@ export default function DetailView({
         )}
 
         {/* Main Product Detail Card */}
-        <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden p-6 sm:p-8 lg:p-10 mb-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-start">
+        <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden p-4 sm:p-8 lg:p-10 mb-8 sm:mb-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-start">
             
             {/* Left: Product Image & Interactive Thumbnails */}
-            <div className="space-y-4">
-              <div className="relative rounded-xl overflow-hidden bg-white border border-gray-100 aspect-square p-6 flex items-center justify-center group shadow-xs">
+            <div className="space-y-3 sm:space-y-4">
+              <div 
+                className="relative rounded-xl overflow-hidden bg-white border border-gray-100 aspect-square p-4 sm:p-6 flex items-center justify-center group shadow-xs select-none"
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
+              >
                 <img
                   src={currentMainImage}
                   alt={`${product.name} view ${selectedImageIndex + 1}`}
@@ -117,10 +136,10 @@ export default function DetailView({
                       e.stopPropagation();
                       setSelectedImageIndex((prev) => (prev > 0 ? prev - 1 : galleryImages.length - 1));
                     }}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-700 hover:text-black p-2 rounded-full shadow-md border border-gray-200 transition-all cursor-pointer opacity-80 hover:opacity-100"
+                    className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-700 hover:text-black p-1.5 sm:p-2 rounded-full shadow-md border border-gray-200 transition-all cursor-pointer opacity-85 hover:opacity-100"
                     aria-label="Previous image"
                   >
-                    <ChevronLeft className="w-5 h-5" />
+                    <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
                   </button>
                 )}
 
@@ -132,34 +151,34 @@ export default function DetailView({
                       e.stopPropagation();
                       setSelectedImageIndex((prev) => (prev < galleryImages.length - 1 ? prev + 1 : 0));
                     }}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-700 hover:text-black p-2 rounded-full shadow-md border border-gray-200 transition-all cursor-pointer opacity-80 hover:opacity-100"
+                    className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-700 hover:text-black p-1.5 sm:p-2 rounded-full shadow-md border border-gray-200 transition-all cursor-pointer opacity-85 hover:opacity-100"
                     aria-label="Next image"
                   >
-                    <ChevronRight className="w-5 h-5" />
+                    <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
                   </button>
                 )}
 
                 {/* Image counter pill */}
                 {galleryImages.length > 1 && (
-                  <span className="absolute bottom-3 right-3 bg-black/60 text-white text-[11px] font-medium px-2.5 py-0.5 rounded-full backdrop-blur-xs select-none">
+                  <span className="absolute bottom-3 right-3 bg-black/60 text-white text-[10px] sm:text-[11px] font-medium px-2 sm:px-2.5 py-0.5 rounded-full backdrop-blur-xs select-none">
                     {selectedImageIndex + 1} / {galleryImages.length}
                   </span>
                 )}
 
                 {product.isSale && (
-                  <span className="absolute top-4 left-4 bg-[#7cb342] text-white text-xs font-bold px-3 py-1 rounded uppercase tracking-wider shadow-xs">
+                  <span className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-[#7cb342] text-white text-[10px] sm:text-xs font-bold px-2.5 sm:px-3 py-0.5 sm:py-1 rounded uppercase tracking-wider shadow-xs">
                     SALE
                   </span>
                 )}
                 {product.tag && (
-                  <span className="absolute top-4 right-4 bg-purple-100 text-[#511B57] text-xs font-bold px-3 py-1 rounded uppercase tracking-wider shadow-xs">
+                  <span className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-purple-100 text-[#511B57] text-[10px] sm:text-xs font-bold px-2.5 sm:px-3 py-0.5 sm:py-1 rounded uppercase tracking-wider shadow-xs">
                     {product.tag}
                   </span>
                 )}
               </div>
 
               {/* Thumbnails row: interactive clicking to switch main image */}
-              <div className="grid grid-cols-4 gap-3">
+              <div className="grid grid-cols-4 gap-2 sm:gap-3">
                 {galleryImages.map((imgSrc, idx) => (
                   <button 
                     key={idx} 
@@ -340,15 +359,15 @@ export default function DetailView({
             </div>
 
             {activeTab === 'specifications' ? (
-              <div className="max-w-xl">
-                <table className="w-full text-sm text-left border border-gray-200 rounded-lg overflow-hidden">
+              <div className="max-w-xl overflow-x-auto">
+                <table className="w-full text-xs sm:text-sm text-left border border-gray-200 rounded-lg overflow-hidden">
                   <tbody>
                     {product.specifications?.map((spec, i) => (
                       <tr key={i} className={i % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
-                        <td className="px-5 py-3 font-semibold text-gray-600 border-b border-gray-100 w-1/3">
+                        <td className="px-3.5 sm:px-5 py-2.5 sm:py-3 font-semibold text-gray-600 border-b border-gray-100 w-2/5 sm:w-1/3">
                           {spec.key}
                         </td>
-                        <td className="px-5 py-3 text-gray-800 border-b border-gray-100">
+                        <td className="px-3.5 sm:px-5 py-2.5 sm:py-3 text-gray-800 border-b border-gray-100">
                           {spec.value}
                         </td>
                       </tr>
@@ -357,7 +376,7 @@ export default function DetailView({
                 </table>
               </div>
             ) : (
-              <div className="text-sm text-gray-600 leading-relaxed max-w-3xl space-y-3">
+              <div className="text-xs sm:text-sm text-gray-600 leading-relaxed max-w-3xl space-y-3">
                 <p>{product.description}</p>
                 <p>
                   Researched and clinically tested by a team of over 75 full-time scientists at the Nu Skin Innovation Center (Provo, Utah). The product adheres to the world-leading strict 6S Quality Process.
@@ -368,15 +387,15 @@ export default function DetailView({
         </div>
 
         {/* Results List: Matching Products from Search or Related Products */}
-        <div className="my-10">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mb-6">
+        <div className="my-8 sm:my-10">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mb-4 sm:mb-6">
             <div>
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
+              <h3 className="text-lg sm:text-2xl font-bold text-gray-900">
                 {searchTerm
                   ? `All products matching "${searchTerm}" (${matchingProducts.length})`
                   : 'Featured Products Recommended For You'}
               </h3>
-              <p className="text-xs text-gray-500 mt-1">
+              <p className="text-xs text-gray-500 mt-0.5 sm:mt-1">
                 {searchTerm
                   ? 'Click any product to switch quickly to its detailed view'
                   : 'Explore more exclusive Nu Skin health & beauty products'}
@@ -384,7 +403,7 @@ export default function DetailView({
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
             {displayList.map((p) => {
               const isFav = wishlistIds.includes(p.id);
               const isSelected = p.id === product.id;
@@ -395,7 +414,7 @@ export default function DetailView({
                     onSelectProduct(p);
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
-                  className={`bg-white border rounded-xl p-4 transition-all cursor-pointer group flex flex-col justify-between relative ${
+                  className={`bg-white border rounded-xl p-2.5 sm:p-4 transition-all cursor-pointer group flex flex-col justify-between relative ${
                     isSelected
                       ? 'border-[#511B57] ring-2 ring-purple-200 shadow-md'
                       : 'border-gray-200 hover:border-purple-300 hover:shadow-lg'
@@ -408,21 +427,21 @@ export default function DetailView({
                       e.stopPropagation();
                       onToggleWishlist && onToggleWishlist(p);
                     }}
-                    className="absolute top-3 right-3 z-10 p-1.5 rounded-full bg-white/90 hover:bg-white shadow-xs text-gray-400 hover:text-rose-500 transition-colors"
+                    className="absolute top-2 right-2 sm:top-3 sm:right-3 z-10 p-1 sm:p-1.5 rounded-full bg-white/90 hover:bg-white shadow-xs text-gray-400 hover:text-rose-500 transition-colors cursor-pointer"
                     title={isFav ? "Remove from wishlist" : "Add to wishlist"}
                   >
-                    <Heart className={`w-4 h-4 ${isFav ? 'fill-rose-500 text-rose-500' : ''}`} />
+                    <Heart className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${isFav ? 'fill-rose-500 text-rose-500' : ''}`} />
                   </button>
 
                   {/* Tag badge */}
                   {p.tag && (
-                    <span className="absolute top-3 left-3 z-10 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-purple-100 text-[#511B57]">
+                    <span className="absolute top-2 left-2 sm:top-3 sm:left-3 z-10 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider px-1.5 sm:px-2 py-0.5 rounded bg-purple-100 text-[#511B57]">
                       {p.tag}
                     </span>
                   )}
 
                   {/* Image */}
-                  <div className="aspect-square bg-gray-50 rounded-lg overflow-hidden mb-3 p-3 flex items-center justify-center">
+                  <div className="aspect-square bg-gray-50 rounded-lg overflow-hidden mb-2 sm:mb-3 p-2 sm:p-3 flex items-center justify-center">
                     <img
                       src={p.image}
                       alt={p.name}
@@ -433,20 +452,20 @@ export default function DetailView({
                   {/* Info */}
                   <div className="flex-1 flex flex-col justify-between">
                     <div>
-                      <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest block mb-0.5">
+                      <span className="text-[9px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest block mb-0.5">
                         {p.category}
                       </span>
-                      <h4 className="text-sm font-bold text-gray-900 line-clamp-1 group-hover:text-[#511B57] transition-colors mb-1.5">
+                      <h4 className="text-xs sm:text-sm font-bold text-gray-900 line-clamp-1 group-hover:text-[#511B57] transition-colors mb-1 sm:mb-1.5">
                         {p.name}
                       </h4>
-                      <p className="text-xs text-gray-500 line-clamp-2 mb-3 leading-relaxed">
+                      <p className="text-[11px] sm:text-xs text-gray-500 line-clamp-2 mb-2 sm:mb-3 leading-relaxed hidden sm:block">
                         {p.description}
                       </p>
                     </div>
 
                     {/* Price & Add to Cart button */}
-                    <div className="pt-2 border-t border-gray-100 flex items-center justify-between">
-                      <span className="text-sm font-bold text-[#D4A373]">
+                    <div className="pt-1.5 sm:pt-2 border-t border-gray-100 flex items-center justify-between">
+                      <span className="text-xs sm:text-sm font-bold text-[#D4A373]">
                         ${p.price.toFixed(2)}
                       </span>
                       <button
@@ -455,7 +474,7 @@ export default function DetailView({
                           e.stopPropagation();
                           onAddToCart(p);
                         }}
-                        className="p-2 bg-[#511B57] hover:bg-[#3D1442] text-white rounded-lg transition-colors shadow-xs"
+                        className="p-1.5 sm:p-2 bg-[#511B57] hover:bg-[#3D1442] text-white rounded-lg transition-colors shadow-xs cursor-pointer"
                         title="Add to cart"
                       >
                         <ShoppingCart className="w-3.5 h-3.5" />

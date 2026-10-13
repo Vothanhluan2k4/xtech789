@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function NewsSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [visibleCount, setVisibleCount] = useState(3);
+  const [touchStart, setTouchStart] = useState(0);
 
   const newsItems = [
     {
@@ -27,24 +29,58 @@ export default function NewsSection() {
     },
   ];
 
+  // Adjust visible card count based on screen width
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setVisibleCount(1);
+      } else if (window.innerWidth < 1024) {
+        setVisibleCount(2);
+      } else {
+        setVisibleCount(3);
+      }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const maxSlideIndex = Math.max(0, newsItems.length - visibleCount);
+  const safeCurrentSlide = Math.min(currentSlide, maxSlideIndex);
+
   const handleNext = () => {
-    setCurrentSlide((prev) => (prev + 1) % (newsItems.length - 2));
+    setCurrentSlide((prev) => (prev >= maxSlideIndex ? 0 : prev + 1));
   };
 
   const handlePrev = () => {
-    setCurrentSlide((prev) => (prev === 0 ? newsItems.length - 3 : prev - 1));
+    setCurrentSlide((prev) => (prev <= 0 ? maxSlideIndex : prev - 1));
   };
 
+  const handleTouchStart = (e) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = (e) => {
+    const touchEnd = e.changedTouches[0].clientX;
+    if (touchStart - touchEnd > 50) {
+      handleNext();
+    } else if (touchStart - touchEnd < -50) {
+      handlePrev();
+    }
+  };
+
+  const displayedItems = newsItems.slice(safeCurrentSlide, safeCurrentSlide + visibleCount);
+
   return (
-    <section className="py-12 md:py-16 bg-white border-t border-gray-100">
+    <section className="py-10 md:py-16 bg-white border-t border-gray-100">
       <div className="container mx-auto">
         
         {/* Header Pill Matching Figma (— Nu Skin In The News —) */}
-        <div className="flex items-center justify-center my-8">
-          <div className="inline-flex items-center justify-center px-8 sm:px-12 py-2.5 sm:py-3 bg-brand-900 text-white font-black text-xl sm:text-2xl rounded-xl shadow-sm">
-            <span className="w-5 sm:w-8 h-0.5 bg-white mr-3"></span>
-            <span className="tracking-wide">Nu Skin In The News</span>
-            <span className="w-5 sm:w-8 h-0.5 bg-white ml-3"></span>
+        <div className="flex items-center justify-center mb-8">
+          <div className="inline-flex items-center justify-center px-6 sm:px-12 py-2 sm:py-3 bg-brand-900 text-white font-black text-lg sm:text-2xl rounded-xl shadow-sm">
+            <span className="w-4 sm:w-8 h-0.5 bg-white mr-2.5 sm:mr-3"></span>
+            <span className="tracking-wide text-center">Nu Skin In The News</span>
+            <span className="w-4 sm:w-8 h-0.5 bg-white ml-2.5 sm:ml-3"></span>
           </div>
         </div>
 
@@ -64,8 +100,12 @@ export default function NewsSection() {
               </a>
             </div>
 
-            {/* Slider wrapper with left & right navigation arrows */}
-            <div className="relative flex items-center flex-1">
+            {/* Slider wrapper with left & right navigation arrows and touch swipe */}
+            <div 
+              className="relative flex items-center flex-1"
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+            >
               
               {/* Left Arrow Button with dedicated width */}
               <button
@@ -77,12 +117,18 @@ export default function NewsSection() {
               </button>
 
               {/* Cards row with horizontal padding so < and > have ample room */}
-              <div className="w-full px-6 sm:px-8 lg:px-10">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5 sm:gap-4 lg:gap-5 w-full items-stretch">
-                  {newsItems.slice(currentSlide, currentSlide + 3).map((item, idx) => (
+              <div className="w-full px-7 sm:px-8 lg:px-10">
+                <div className={`grid ${
+                  visibleCount === 1 
+                    ? 'grid-cols-1 max-w-[280px] mx-auto' 
+                    : visibleCount === 2 
+                    ? 'grid-cols-2 max-w-[560px] mx-auto' 
+                    : 'grid-cols-3'
+                } gap-3.5 sm:gap-4 lg:gap-5 w-full items-stretch`}>
+                  {displayedItems.map((item, idx) => (
                     <div
                       key={item.id + idx}
-                      className="max-w-[260px] sm:max-w-[270px] mx-auto w-full bg-white border border-gray-200/80 rounded-none p-3.5 sm:p-4 flex flex-col justify-between hover:shadow-md transition-shadow group cursor-pointer min-h-[360px] sm:min-h-[390px] lg:min-h-[415px]"
+                      className="w-full bg-white border border-gray-200/80 rounded-none p-3.5 sm:p-4 flex flex-col justify-between hover:shadow-md transition-shadow group cursor-pointer min-h-[340px] sm:min-h-[380px] lg:min-h-[415px]"
                     >
                       {/* Top Square Product / Model Image */}
                       <div className="aspect-square w-full mb-3.5 overflow-hidden flex items-center justify-center bg-gray-50/50">
@@ -116,17 +162,25 @@ export default function NewsSection() {
 
             </div>
 
-            {/* Slider Indicator (Black Dash + Dot below cards) */}
+            {/* Slider Indicator (Black Dash + Dot below cards, dynamic according to total slides) */}
             <div className="flex items-center justify-center gap-1.5 mt-5">
-              <span className={`h-1 rounded-full transition-all ${currentSlide === 0 ? 'w-5 bg-black' : 'w-1.5 bg-gray-300'}`}></span>
-              <span className={`h-1 rounded-full transition-all ${currentSlide > 0 ? 'w-5 bg-black' : 'w-1.5 bg-gray-300'}`}></span>
+              {Array.from({ length: maxSlideIndex + 1 }).map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrentSlide(i)}
+                  aria-label={`Go to slide ${i + 1}`}
+                  className={`h-1.5 rounded-full transition-all cursor-pointer ${
+                    safeCurrentSlide === i ? 'w-5 bg-black' : 'w-2 bg-gray-300 hover:bg-gray-400'
+                  }`}
+                />
+              ))}
             </div>
 
           </div>
 
-          {/* Right: Tall News Feature Banner (Spans full height from View All to Dots) */}
+          {/* Right: Tall News Feature Banner (Spans full height on desktop, nicely sized on mobile) */}
           <div className="lg:col-span-1 flex flex-col">
-            <div className="relative w-full h-full min-h-[380px] lg:min-h-0 overflow-hidden shadow-sm group cursor-pointer bg-gray-900 rounded-none flex-1">
+            <div className="relative w-full h-full min-h-[260px] sm:min-h-[320px] lg:min-h-0 overflow-hidden shadow-sm group cursor-pointer bg-gray-900 rounded-none flex-1">
               {/* Background Image (HD 600x900) */}
               <img
                 src="/images/news/news_tall_card.jpg"

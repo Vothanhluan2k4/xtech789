@@ -7,15 +7,15 @@ export default function NuSkinWaySection() {
         
         {/* Section Header Pill: — The Nu Skin Way — */}
         <div className="flex items-center justify-center my-8">
-          <div className="inline-flex items-center justify-center px-8 sm:px-12 py-2.5 sm:py-3 bg-brand-900 text-white font-black text-xl sm:text-2xl rounded-xl shadow-sm">
-            <span className="w-5 sm:w-8 h-0.5 bg-white mr-3"></span>
-            <span className="tracking-wide">The Nu Skin Way</span>
-            <span className="w-5 sm:w-8 h-0.5 bg-white ml-3"></span>
+          <div className="inline-flex items-center justify-center px-6 sm:px-12 py-2 sm:py-3 bg-brand-900 text-white font-black text-lg sm:text-2xl rounded-xl shadow-sm">
+            <span className="w-4 sm:w-8 h-0.5 bg-white mr-2.5 sm:mr-3"></span>
+            <span className="tracking-wide text-center">The Nu Skin Way</span>
+            <span className="w-4 sm:w-8 h-0.5 bg-white ml-2.5 sm:mr-3"></span>
           </div>
         </div>
 
         {/* Top Stats Box (Single border card matching screenshot) */}
-        <div className="bg-white border border-gray-200 rounded-none p-6 sm:p-8 lg:p-10 mb-6 sm:mb-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div className="bg-white border border-gray-200 rounded-none p-5 sm:p-8 lg:p-10 mb-6 sm:mb-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
           {/* Left Title */}
           <div>
             <h3 className="text-xl sm:text-2xl lg:text-3xl font-normal text-gray-800 leading-snug">
@@ -24,8 +24,8 @@ export default function NuSkinWaySection() {
             </h3>
           </div>
 
-          {/* Right 3 Stat Columns */}
-          <div className="flex flex-wrap items-start gap-8 sm:gap-12 lg:gap-16">
+          {/* Right 3 Stat Columns (Neat 2-column grid on mobile, flex on sm+) */}
+          <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-start gap-6 sm:gap-12 lg:gap-16">
             {/* Stat 1 */}
             <div className="flex flex-col">
               <span className="text-2xl sm:text-3xl font-bold text-gray-900 leading-tight">
@@ -50,7 +50,7 @@ export default function NuSkinWaySection() {
             </div>
 
             {/* Stat 3 */}
-            <div className="flex flex-col">
+            <div className="flex flex-col col-span-2 sm:col-span-1">
               <span className="text-2xl sm:text-3xl font-bold text-gray-900 leading-tight">
                 850M+
               </span>
@@ -68,7 +68,7 @@ export default function NuSkinWaySection() {
         {/* Story 1: Being a Force for Good (Left image, Right #F7F7F7 block, gap-0 matching screenshot) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-0 overflow-hidden mb-6 sm:mb-8 bg-[#F7F7F7] border border-gray-100/60 shadow-xs">
           {/* Left Image */}
-          <div className="w-full h-[280px] sm:h-[320px] md:h-auto min-h-[280px] md:min-h-[350px]">
+          <div className="w-full h-[240px] sm:h-[300px] md:h-auto min-h-[240px] md:min-h-[350px]">
             <img
               src="/images/force_for_good_hd.jpg"
               alt="Being a Force for Good"
@@ -77,7 +77,7 @@ export default function NuSkinWaySection() {
           </div>
 
           {/* Right Text Block (Background #F7F7F7 exactly matching reference screenshot) */}
-          <div className="p-8 sm:p-10 md:p-12 lg:p-14 xl:p-16 flex flex-col justify-center bg-[#F7F7F7]">
+          <div className="p-6 sm:p-8 md:p-12 lg:p-14 xl:p-16 flex flex-col justify-center bg-[#F7F7F7]">
             <h3 className="text-2xl sm:text-3xl font-normal text-gray-900 mb-3 sm:mb-4 tracking-tight">
               Being a Force for Good
             </h3>
@@ -98,7 +98,7 @@ export default function NuSkinWaySection() {
         {/* Story 2: Nature + Science (Left #F7F7F7 block, Right image, gap-0 matching screenshot) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-0 overflow-hidden bg-[#F7F7F7] border border-gray-100/60 shadow-xs">
           {/* Left Text Block (Background #F7F7F7 exactly matching reference screenshot) */}
-          <div className="order-2 md:order-1 p-8 sm:p-10 md:p-12 lg:p-14 xl:p-16 flex flex-col justify-center bg-[#F7F7F7]">
+          <div className="order-2 md:order-1 p-6 sm:p-8 md:p-12 lg:p-14 xl:p-16 flex flex-col justify-center bg-[#F7F7F7]">
             <h3 className="text-2xl sm:text-3xl font-normal text-gray-900 mb-3 sm:mb-4 tracking-tight">
               Nature + Science
             </h3>
@@ -116,7 +116,7 @@ export default function NuSkinWaySection() {
           </div>
 
           {/* Right Image */}
-          <div className="order-1 md:order-2 w-full h-[280px] sm:h-[320px] md:h-auto min-h-[280px] md:min-h-[350px]">
+          <div className="order-1 md:order-2 w-full h-[240px] sm:h-[300px] md:h-auto min-h-[240px] md:min-h-[350px]">
             <img
               src="/images/nature_science_hd.jpg"
               alt="Nature + Science"

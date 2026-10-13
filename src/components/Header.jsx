@@ -82,21 +82,31 @@ export default function Header({
       <div className="container mx-auto">
         <div className="flex items-center justify-between gap-4">
           
-          {/* Mobile Menu Toggle Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 rounded text-brand-900 hover:bg-gray-100 transition-colors"
-            aria-label="Toggle Navigation Menu"
-          >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile Menu & Brand */}
+          <div className="flex items-center gap-2 lg:hidden">
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-1.5 sm:p-2 rounded text-brand-900 hover:bg-gray-100 transition-colors"
+              aria-label="Toggle Navigation Menu"
+            >
+              {isMobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
+            </button>
+            <div 
+              onClick={onNavigateHome}
+              className="cursor-pointer select-none font-bold text-base tracking-widest text-brand-900 flex items-center"
+            >
+              NU SKIN
+            </div>
+          </div>
 
-          {/* Left spacing or Brand on desktop */}
+          {/* Left Brand on Desktop */}
           <div 
             onClick={onNavigateHome}
-            className="cursor-pointer select-none hidden lg:block w-64"
+            className="cursor-pointer select-none hidden lg:flex items-center w-48 xl:w-64"
           >
-            {/* Kept subtle or blank matching the Figma layout */}
+            <span className="font-extrabold text-xl tracking-[0.2em] text-brand-900 hover:opacity-85 transition-opacity">
+              NU SKIN
+            </span>
           </div>
 
           {/* Centered Search Bar with Live Suggestions */}
@@ -114,15 +124,15 @@ export default function Header({
                   setShowSuggestions(true);
                 }}
                 onFocus={() => setShowSuggestions(true)}
-                placeholder="Search for products (e.g. Toothpaste, LumiSpa, Tea, Baobab...)"
-                className="w-full pl-4 pr-12 py-2 text-sm bg-white border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-brand-900 focus:border-brand-900 transition-all text-gray-700 placeholder-gray-400"
+                placeholder="Search products (Toothpaste, LumiSpa...)"
+                className="w-full pl-3 sm:pl-4 pr-10 sm:pr-12 py-1.5 sm:py-2 text-xs sm:text-sm bg-white border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-brand-900 focus:border-brand-900 transition-all text-gray-700 placeholder-gray-400"
               />
               <button
                 type="submit"
                 aria-label="Submit Search"
-                className="absolute right-0 top-0 bottom-0 px-3.5 bg-transparent hover:text-brand-900 text-gray-600 flex items-center justify-center transition-colors cursor-pointer"
+                className="absolute right-0 top-0 bottom-0 px-2.5 sm:px-3.5 bg-transparent hover:text-brand-900 text-gray-600 flex items-center justify-center transition-colors cursor-pointer"
               >
-                <Search className="w-4 h-4 text-brand-900 font-bold" />
+                <Search className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-900 font-bold" />
               </button>
 
               {/* Suggestions Dropdown */}
@@ -158,28 +168,28 @@ export default function Header({
           </form>
 
           {/* Right: Wishlist & Cart square border boxes */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
             {/* Wishlist button */}
             <button 
               type="button"
               onClick={onOpenWishlist}
-              className="flex items-center gap-2 px-3 py-1.5 border border-gray-200 text-brand-900 text-sm cursor-pointer hover:bg-purple-50/60 hover:border-purple-300 transition-colors"
+              className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1.5 border border-gray-200 text-brand-900 text-xs sm:text-sm cursor-pointer hover:bg-purple-50/60 hover:border-purple-300 transition-colors"
               title="Wishlist"
             >
-              <Heart className={`w-4 h-4 ${wishlistCount > 0 ? 'text-rose-500 fill-rose-500' : 'text-brand-900 fill-brand-900'}`} />
-              <span className="font-semibold text-gray-700 text-sm">{wishlistCount}</span>
+              <Heart className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${wishlistCount > 0 ? 'text-rose-500 fill-rose-500' : 'text-brand-900 fill-brand-900'}`} />
+              <span className="font-semibold text-gray-700 text-xs sm:text-sm">{wishlistCount}</span>
             </button>
 
             {/* Cart box */}
             <button
               onClick={onOpenCart}
-              className={`flex items-center gap-2 px-3 py-1.5 border border-gray-200 text-brand-900 text-sm hover:bg-gray-50 transition-all ${
+              className={`flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1.5 border border-gray-200 text-brand-900 text-xs sm:text-sm hover:bg-gray-50 transition-all ${
                 isBouncing ? 'ring-2 ring-brand-900' : ''
               }`}
               title="Shopping Cart"
             >
-              <ShoppingCart className="w-4 h-4 text-brand-900 fill-brand-900" />
-              <span className="font-semibold text-gray-700 text-sm">{cartCount}</span>
+              <ShoppingCart className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-900 fill-brand-900" />
+              <span className="font-semibold text-gray-700 text-xs sm:text-sm">{cartCount}</span>
             </button>
           </div>
 

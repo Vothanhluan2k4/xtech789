@@ -55,6 +55,21 @@ export default function PopularProductsSection({
     }
   }, [maxIndex, currentIndex]);
 
+  const [touchStartX, setTouchStartX] = useState(0);
+
+  const handleTouchStart = (e) => {
+    setTouchStartX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = (e) => {
+    const touchEndX = e.changedTouches[0].clientX;
+    if (touchStartX - touchEndX > 50) {
+      handleNext();
+    } else if (touchStartX - touchEndX < -50) {
+      handlePrev();
+    }
+  };
+
   const handleNext = () => {
     setCurrentIndex((prev) => (prev < maxIndex ? prev + 1 : 0));
   };
@@ -95,7 +110,7 @@ export default function PopularProductsSection({
           <div className="flex flex-col lg:flex-row gap-3.5 sm:gap-4 lg:gap-5 items-stretch">
             
             {/* Left Feature Card: Pure White Card with Teal Brush Strokes (Larger & Taller, Wider) */}
-            <div className="w-full lg:w-[280px] xl:w-[310px] 2xl:w-[330px] flex-shrink-0 bg-white p-6 sm:p-7 lg:p-8 pb-12 flex flex-col justify-between relative overflow-hidden border border-gray-100 shadow-xs min-h-[480px] lg:min-h-[540px] xl:min-h-[560px]">
+            <div className="w-full lg:w-[280px] xl:w-[310px] 2xl:w-[330px] flex-shrink-0 bg-white p-5 sm:p-7 lg:p-8 pb-8 sm:pb-12 flex flex-col justify-between relative overflow-hidden border border-gray-100 shadow-xs min-h-[280px] sm:min-h-[380px] lg:min-h-[540px] xl:min-h-[560px]">
               {/* Teal Brush Strokes matching exact Figma design */}
               <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 350 520" fill="none" preserveAspectRatio="none">
                 {/* 5 Teal Rays radiating from right edge */}
@@ -111,7 +126,7 @@ export default function PopularProductsSection({
 
               {/* Title & Link */}
               <div className="relative z-10 pt-1">
-                <h3 className="text-2xl sm:text-[28px] lg:text-[30px] xl:text-[32px] font-bold text-gray-900 leading-[1.18] tracking-tight max-w-[190px]">
+                <h3 className="text-xl sm:text-[26px] lg:text-[30px] xl:text-[32px] font-bold text-gray-900 leading-[1.18] tracking-tight max-w-[190px]">
                   Find out<br />
                   what<br />
                   everyone's<br />
@@ -120,7 +135,7 @@ export default function PopularProductsSection({
                 </h3>
 
                 {/* Link directly below title with generous breathing room */}
-                <div className="pt-8 sm:pt-10">
+                <div className="pt-6 sm:pt-10">
                   <button 
                     onClick={() => onSelectProduct(popularList[0])}
                     className="text-sm sm:text-base font-normal text-gray-700 hover:text-black transition-colors text-left cursor-pointer"
@@ -138,12 +153,12 @@ export default function PopularProductsSection({
             <div className="flex-1 min-w-0 flex flex-col justify-between">
               
               {/* Top Bar: Tabs (DESCRIPTION with gold top line & SPECIFICATIONS) + View All >> */}
-              <div className="flex items-center justify-between pb-3 mb-3 border-b border-gray-200/50">
+              <div className="flex items-center justify-between pb-3 mb-3 border-b border-gray-200/50 gap-2">
                 {/* Tabs */}
                 <div className="flex items-center space-x-1">
                   <button
                     onClick={() => setActiveTab('description')}
-                    className={`px-6 py-2.5 text-xs font-bold uppercase tracking-wider transition-all border-t-[3px] ${
+                    className={`px-3.5 sm:px-6 py-2 sm:py-2.5 text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all border-t-[3px] ${
                       activeTab === 'description'
                         ? 'bg-white border-[#E59819] text-gray-900 shadow-2xs'
                         : 'bg-[#EDF2F4] border-transparent text-gray-400 hover:text-gray-700'
@@ -153,7 +168,7 @@ export default function PopularProductsSection({
                   </button>
                   <button
                     onClick={() => setActiveTab('specifications')}
-                    className={`px-6 py-2.5 text-xs font-bold uppercase tracking-wider transition-all border-t-[3px] ${
+                    className={`px-3.5 sm:px-6 py-2 sm:py-2.5 text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all border-t-[3px] ${
                       activeTab === 'specifications'
                         ? 'bg-white border-[#E59819] text-gray-900 shadow-2xs'
                         : 'bg-[#EDF2F4] border-transparent text-gray-400 hover:text-gray-700'
@@ -166,7 +181,7 @@ export default function PopularProductsSection({
                 {/* View All >> */}
                 <button
                   onClick={() => onViewAll && onViewAll()}
-                  className="text-xs font-semibold text-gray-800 hover:text-[#511B57] transition-colors flex items-center gap-1 group"
+                  className="text-xs font-semibold text-gray-800 hover:text-[#511B57] transition-colors flex items-center gap-1 group shrink-0"
                 >
                   <span className="underline underline-offset-2">View All</span>
                   <span className="font-bold group-hover:translate-x-0.5 transition-transform">&gt;&gt;</span>
@@ -195,7 +210,12 @@ export default function PopularProductsSection({
                 </button>
 
                 {/* Sliding Cards Track: 4 products visible on desktop with increased height */}
-                <div ref={containerRef} className="overflow-hidden relative w-full flex-1">
+                <div 
+                  ref={containerRef} 
+                  className="overflow-hidden relative w-full flex-1"
+                  onTouchStart={handleTouchStart}
+                  onTouchEnd={handleTouchEnd}
+                >
                   <div 
                     className="flex gap-2.5 xl:gap-3 transition-transform duration-500 ease-in-out"
                     style={{ transform: `translateX(-${getSlideOffset()}px)` }}
@@ -209,7 +229,7 @@ export default function PopularProductsSection({
                           className="w-[85%] sm:w-[calc((100%-10px)/2)] lg:w-[calc((100%-30px)/4)] xl:w-[calc((100%-36px)/4)] flex-shrink-0 bg-white border border-gray-200/70 rounded-none overflow-hidden hover:shadow-md transition-shadow flex flex-col justify-between group cursor-pointer relative"
                         >
                           {/* Product Image Area - Increased Height */}
-                          <div className="relative h-60 sm:h-64 lg:h-72 xl:h-80 bg-white flex items-center justify-center p-3 sm:p-4 overflow-hidden">
+                          <div className="relative h-52 sm:h-64 lg:h-72 xl:h-80 bg-white flex items-center justify-center p-3 sm:p-4 overflow-hidden">
                             <img
                               src={product.image}
                               alt={product.name}

@@ -34,12 +34,12 @@ const YoutubeIcon = () => (
 
 export default function TopBar({ isScrolled }) {
   return (
-    <div className={`bg-brand-900 text-purple-100 text-xs border-b border-brand-800 transition-all duration-300 ${
+    <div className={`bg-brand-900 text-purple-100 text-[11px] sm:text-xs border-b border-brand-800 transition-all duration-300 ${
       isScrolled ? 'hidden sm:block' : 'block'
     }`}>
-      <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between py-2 gap-2">
+      <div className="container mx-auto flex items-center justify-between py-1.5 px-3 sm:px-4 gap-2">
         {/* Left: Quick Links & Contact */}
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-2.5 sm:space-x-4">
           <a href="#faqs" className="hover:text-white transition-colors">FAQs</a>
           <span className="text-brand-600">|</span>
           <a href="#help" className="hover:text-white transition-colors">Help</a>

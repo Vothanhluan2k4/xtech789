@@ -9,6 +9,19 @@ export default function CartDrawer({
   onRemoveItem,
   onClearCart
 }) {
+  React.useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   const totalAmount = cartItems.reduce(
@@ -25,7 +38,7 @@ export default function CartDrawer({
       />
 
       {/* Drawer */}
-      <div className="relative w-full max-w-md bg-white h-full shadow-2xl flex flex-col z-10 animate-slideLeft">
+      <div className="relative w-full sm:max-w-md bg-white h-full shadow-2xl flex flex-col z-10 animate-slideLeft">
         
         {/* Drawer Header */}
         <div className="p-4 sm:p-5 bg-brand-900 text-white flex items-center justify-between shadow-sm">
