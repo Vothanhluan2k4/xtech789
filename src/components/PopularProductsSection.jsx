@@ -152,22 +152,23 @@ export default function PopularProductsSection({
           <div className="flex flex-col lg:flex-row gap-3.5 sm:gap-4 lg:gap-5 items-stretch">
             
             {/* Left Feature Card: Pure White Card with Teal Brush Strokes (Larger & Taller, Wider) */}
-            <div className="w-full lg:w-[320px] xl:w-[345px] 2xl:w-[365px] flex-shrink-0 bg-white p-6 sm:p-8 lg:p-9 pb-12 flex flex-col justify-between relative overflow-hidden border border-gray-100 shadow-xs min-h-[440px] lg:min-h-[520px]">
+            <div className="w-full lg:w-[320px] xl:w-[345px] 2xl:w-[365px] flex-shrink-0 bg-white p-6 sm:p-7 lg:p-8 pb-12 flex flex-col justify-between relative overflow-hidden border border-gray-100 shadow-xs min-h-[440px] lg:min-h-[520px]">
               {/* Teal Brush Strokes matching exact Figma design */}
               <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 350 520" fill="none" preserveAspectRatio="none">
-                {/* 4 Strong Teal Rays radiating from right edge */}
-                <line x1="150" y1="50" x2="320" y2="70" stroke="#00A887" strokeWidth="8" strokeLinecap="round" />
-                <line x1="140" y1="135" x2="315" y2="130" stroke="#00A887" strokeWidth="8" strokeLinecap="round" />
-                <line x1="155" y1="215" x2="325" y2="175" stroke="#00A887" strokeWidth="8" strokeLinecap="round" />
-                <line x1="205" y1="280" x2="320" y2="225" stroke="#00A887" strokeWidth="8" strokeLinecap="round" />
-                {/* Faint Mint Rays at bottom-left */}
-                <line x1="0" y1="330" x2="145" y2="285" stroke="rgba(0, 168, 135, 0.12)" strokeWidth="15" strokeLinecap="round" />
-                <line x1="0" y1="460" x2="165" y2="425" stroke="rgba(0, 168, 135, 0.12)" strokeWidth="15" strokeLinecap="round" />
+                {/* 5 Teal Rays radiating from right edge */}
+                <line x1="320" y1="0" x2="348" y2="8" stroke="#00A887" strokeWidth="8" strokeLinecap="round" />
+                <line x1="225" y1="45" x2="335" y2="80" stroke="#00A887" strokeWidth="8" strokeLinecap="round" />
+                <line x1="220" y1="125" x2="340" y2="120" stroke="#00A887" strokeWidth="8" strokeLinecap="round" />
+                <line x1="225" y1="195" x2="345" y2="155" stroke="#00A887" strokeWidth="8" strokeLinecap="round" />
+                <line x1="265" y1="265" x2="348" y2="205" stroke="#00A887" strokeWidth="8" strokeLinecap="round" />
+                {/* Faint Mint Rays at bottom-left positioned safely below Browse our best */}
+                <line x1="0" y1="370" x2="145" y2="325" stroke="rgba(0, 168, 135, 0.12)" strokeWidth="15" strokeLinecap="round" />
+                <line x1="0" y1="480" x2="165" y2="440" stroke="rgba(0, 168, 135, 0.12)" strokeWidth="15" strokeLinecap="round" />
               </svg>
 
               {/* Title & Link */}
               <div className="relative z-10 pt-1">
-                <h3 className="text-2xl sm:text-3xl lg:text-[34px] xl:text-[38px] font-bold text-gray-900 leading-[1.18] tracking-tight">
+                <h3 className="text-2xl sm:text-[28px] lg:text-[30px] xl:text-[32px] font-bold text-gray-900 leading-[1.18] tracking-tight max-w-[190px]">
                   Find out<br />
                   what<br />
                   everyone's<br />
@@ -179,7 +180,7 @@ export default function PopularProductsSection({
                 <div className="pt-8 sm:pt-10">
                   <button 
                     onClick={() => onSelectProduct(popularList[0])}
-                    className="text-sm sm:text-base font-normal text-gray-700 hover:text-black transition-colors text-left"
+                    className="text-sm sm:text-base font-normal text-gray-700 hover:text-black transition-colors text-left cursor-pointer"
                   >
                     Browse our best
                   </button>
