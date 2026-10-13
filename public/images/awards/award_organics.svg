@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+      <circle cx="50" cy="50" r="46" fill="#F4FBF7" stroke="#2E7D32" stroke-width="3"/>
+      <circle cx="50" cy="50" r="41" fill="none" stroke="#81C784" stroke-width="1.5" stroke-dasharray="3,2"/>
+      <path d="M50 20 C42 26 40 36 50 44 C60 36 58 26 50 20 Z" fill="#2E7D32"/>
+      <text x="50" y="55" font-family="sans-serif" font-size="6" font-weight="800" fill="#1B5E20" text-anchor="middle" letter-spacing="0.5">ORGANIC BEAUTY</text>
+      <text x="50" y="63" font-family="sans-serif" font-size="6" font-weight="800" fill="#2E7D32" text-anchor="middle">GLOBAL AWARDS</text>
+      <text x="50" y="73" font-family="sans-serif" font-size="6" font-weight="900" fill="#F57F17" text-anchor="middle">GOLD WINNER 2023</text>
+    </svg>

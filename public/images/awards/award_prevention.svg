@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+      <circle cx="50" cy="50" r="46" fill="#F0F8FF" stroke="#0284C7" stroke-width="3"/>
+      <circle cx="50" cy="50" r="41" fill="none" stroke="#38BDF8" stroke-width="1.5"/>
+      <text x="50" y="35" font-family="sans-serif" font-size="7.5" font-weight="900" fill="#0369A1" text-anchor="middle">PREVENTION</text>
+      <text x="50" y="46" font-family="sans-serif" font-size="6" font-weight="700" fill="#0C4A6E" text-anchor="middle">HEALTHY BEAUTY</text>
+      <text x="50" y="55" font-family="sans-serif" font-size="6" font-weight="700" fill="#0284C7" text-anchor="middle">AWARDS</text>
+      <rect x="25" y="61" width="50" height="13" rx="3" fill="#0284C7"/>
+      <text x="50" y="70" font-family="sans-serif" font-size="5.5" font-weight="bold" fill="#FFFFFF" text-anchor="middle">WINNER 2022</text>
+    </svg>

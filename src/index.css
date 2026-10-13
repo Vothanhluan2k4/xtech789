@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    overflow-x: clip;
+  }
+}
+
+/* Figma Wide Layout: Body container occupies 88% - 90% of screen width with 2 small side margins */
+@layer components {
+  .container {
+    width: 100% !important;
+    max-width: 95% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      max-width: 92% !important;
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      max-width: 90% !important;
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .container {
+      max-width: 88% !important;
+      padding-left: 1.25rem !important;
+      padding-right: 1.25rem !important;
+    }
+  }
+
+  @media (min-width: 1600px) {
+    .container {
+      max-width: 88% !important;
+      max-width: 1760px !important;
+      padding-left: 1.5rem !important;
+      padding-right: 1.5rem !important;
+    }
+  }
+}
+
+/* Custom scrollbar for better UI */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c2a3cb;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4A1259;
+}

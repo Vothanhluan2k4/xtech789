@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+      <circle cx="50" cy="50" r="46" fill="#FAF5F0" stroke="#B76E79" stroke-width="3"/>
+      <circle cx="50" cy="50" r="42" fill="none" stroke="#B76E79" stroke-width="1"/>
+      <text x="50" y="32" font-family="serif" font-size="6.5" font-weight="bold" fill="#B76E79" text-anchor="middle" letter-spacing="0.5">PRIX D'EXCELLENCE</text>
+      <text x="50" y="42" font-family="sans-serif" font-size="5.5" font-weight="600" fill="#4A4A4A" text-anchor="middle">DE LA BEAUTÉ</text>
+      <line x1="30" y1="48" x2="70" y2="48" stroke="#B76E79" stroke-width="1"/>
+      <text x="50" y="60" font-family="sans-serif" font-size="7.5" font-weight="900" fill="#1A1A1A" text-anchor="middle">marie claire</text>
+      <text x="50" y="72" font-family="sans-serif" font-size="6" font-weight="bold" fill="#B76E79" text-anchor="middle">WINNER 2024</text>
+    </svg>
