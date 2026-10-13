@@ -74,18 +74,18 @@ export default function PopularProductsSection({
           
           <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 items-stretch">
             
-            {/* Left Feature Card: Pure White Card with Teal Brush Strokes (Larger & Taller) */}
-            <div className="w-full lg:w-[290px] xl:w-[320px] 2xl:w-[340px] flex-shrink-0 bg-white p-6 sm:p-8 lg:p-9 flex flex-col justify-between relative overflow-hidden border border-gray-100 shadow-xs min-h-[380px] lg:min-h-[460px]">
+            {/* Left Feature Card: Pure White Card with Teal Brush Strokes (Larger & Taller by 5-10px) */}
+            <div className="w-full lg:w-[305px] xl:w-[330px] 2xl:w-[350px] flex-shrink-0 bg-white p-6 sm:p-8 lg:p-9 pb-10 sm:pb-12 flex flex-col justify-between relative overflow-hidden border border-gray-100 shadow-xs min-h-[400px] lg:min-h-[485px]">
               {/* Teal Brush Strokes matching exact Figma design */}
-              <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 320 460" fill="none" preserveAspectRatio="none">
+              <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 330 480" fill="none" preserveAspectRatio="none">
                 {/* 4 Strong Teal Rays radiating from right edge */}
-                <line x1="140" y1="50" x2="295" y2="70" stroke="#00A887" strokeWidth="8" strokeLinecap="round" />
-                <line x1="130" y1="130" x2="290" y2="128" stroke="#00A887" strokeWidth="8" strokeLinecap="round" />
-                <line x1="145" y1="210" x2="300" y2="170" stroke="#00A887" strokeWidth="8" strokeLinecap="round" />
-                <line x1="190" y1="270" x2="295" y2="215" stroke="#00A887" strokeWidth="8" strokeLinecap="round" />
+                <line x1="145" y1="50" x2="305" y2="70" stroke="#00A887" strokeWidth="8" strokeLinecap="round" />
+                <line x1="135" y1="130" x2="300" y2="128" stroke="#00A887" strokeWidth="8" strokeLinecap="round" />
+                <line x1="150" y1="210" x2="310" y2="170" stroke="#00A887" strokeWidth="8" strokeLinecap="round" />
+                <line x1="195" y1="270" x2="305" y2="215" stroke="#00A887" strokeWidth="8" strokeLinecap="round" />
                 {/* Faint Mint Rays at bottom-left */}
-                <line x1="0" y1="300" x2="130" y2="260" stroke="rgba(0, 168, 135, 0.12)" strokeWidth="14" strokeLinecap="round" />
-                <line x1="0" y1="420" x2="150" y2="390" stroke="rgba(0, 168, 135, 0.12)" strokeWidth="14" strokeLinecap="round" />
+                <line x1="0" y1="310" x2="135" y2="270" stroke="rgba(0, 168, 135, 0.12)" strokeWidth="14" strokeLinecap="round" />
+                <line x1="0" y1="435" x2="155" y2="405" stroke="rgba(0, 168, 135, 0.12)" strokeWidth="14" strokeLinecap="round" />
               </svg>
 
               {/* Title & Link */}
@@ -113,7 +113,7 @@ export default function PopularProductsSection({
               <div className="relative z-10"></div>
             </div>
 
-            {/* Right Area: Tabs + Product Cards (Strictly 3 Products) */}
+            {/* Right Area: Tabs + Product Cards (Strictly 3 Products, Reduced Card Width & Spaced Chevrons) */}
             <div className="flex-1 min-w-0 flex flex-col justify-between">
               
               {/* Top Bar: Tabs (DESCRIPTION with gold top line & SPECIFICATIONS) + View All >> */}
@@ -152,95 +152,97 @@ export default function PopularProductsSection({
                 </button>
               </div>
 
-              {/* Product Cards Track with Chevrons */}
+              {/* Product Cards Track with Increased Chevron Spacing and Reduced Card Width */}
               <div className="relative flex-1 flex flex-col justify-between">
                 
-                {/* Chevrons */}
+                {/* Chevrons with ample breathing room on both sides */}
                 <button 
                   type="button"
-                  className="hidden lg:flex items-center justify-center absolute -left-3.5 top-1/2 -translate-y-1/2 z-20 text-gray-400 hover:text-gray-800 transition-colors cursor-pointer p-1"
+                  className="hidden sm:flex items-center justify-center absolute left-1 sm:left-2 lg:left-3 top-1/2 -translate-y-1/2 z-20 text-gray-400 hover:text-gray-800 transition-colors cursor-pointer p-2 rounded-full hover:bg-gray-100/60"
                   aria-label="Previous"
                 >
                   <ChevronLeft className="w-5 h-5 stroke-[1.5]" />
                 </button>
                 <button 
                   type="button"
-                  className="hidden lg:flex items-center justify-center absolute -right-2 top-1/2 -translate-y-1/2 z-20 text-gray-400 hover:text-gray-800 transition-colors cursor-pointer p-1"
+                  className="hidden sm:flex items-center justify-center absolute right-1 sm:right-2 lg:right-3 top-1/2 -translate-y-1/2 z-20 text-gray-400 hover:text-gray-800 transition-colors cursor-pointer p-2 rounded-full hover:bg-gray-100/60"
                   aria-label="Next"
                 >
                   <ChevronRight className="w-5 h-5 stroke-[1.5]" />
                 </button>
 
-                {/* Grid Layout: Strictly 3 product cards matching reference */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4 lg:gap-5 items-stretch">
-                  {popularList.map((product) => {
-                    const isAdded = addedIds.includes(product.id);
-                    return (
-                      <div
-                        key={product.id}
-                        onClick={() => onSelectProduct(product)}
-                        className="bg-white border border-gray-200/70 rounded-none overflow-hidden hover:shadow-md transition-shadow flex flex-col justify-between group cursor-pointer relative"
-                      >
-                        {/* Product Image Area */}
-                        <div className="relative h-52 sm:h-56 lg:h-60 xl:h-64 bg-white flex items-center justify-center p-3 overflow-hidden">
-                          <img
-                            src={product.image}
-                            alt={product.name}
-                            className="max-h-full max-w-full object-contain group-hover:scale-102 transition-transform duration-300"
-                          />
+                {/* Grid Layout: Inset with padding to leave empty space for chevrons and reduce card width */}
+                <div className="px-8 sm:px-11 lg:px-14 xl:px-16">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4 lg:gap-5 items-stretch">
+                    {popularList.map((product) => {
+                      const isAdded = addedIds.includes(product.id);
+                      return (
+                        <div
+                          key={product.id}
+                          onClick={() => onSelectProduct(product)}
+                          className="max-w-[260px] mx-auto w-full bg-white border border-gray-200/70 rounded-none overflow-hidden hover:shadow-md transition-shadow flex flex-col justify-between group cursor-pointer relative"
+                        >
+                          {/* Product Image Area */}
+                          <div className="relative h-48 sm:h-50 lg:h-54 xl:h-56 bg-white flex items-center justify-center p-3 overflow-hidden">
+                            <img
+                              src={product.image}
+                              alt={product.name}
+                              className="max-h-full max-w-full object-contain group-hover:scale-102 transition-transform duration-300"
+                            />
 
-                          {/* Heart Wishlist Toggle Button */}
-                          <button
-                            type="button"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              onToggleWishlist && onToggleWishlist(product);
-                            }}
-                            className="absolute bottom-2.5 right-2.5 z-10 p-1.5 rounded-full bg-white/90 hover:bg-white shadow-xs text-gray-400 hover:text-rose-500 transition-colors"
-                            title={wishlistIds.includes(product.id) ? "Remove from wishlist" : "Add to wishlist"}
-                          >
-                            <Heart className={`w-3.5 h-3.5 ${wishlistIds.includes(product.id) ? 'fill-rose-500 text-rose-500' : ''}`} />
-                          </button>
-                        </div>
-
-                        {/* Product Info with subtle pale gray background matching screenshot */}
-                        <div className="bg-[#F5F8F9] p-3.5 sm:p-4 text-center border-t border-gray-100 flex-1 flex flex-col justify-between">
-                          <div>
-                            <p className="text-[10px] sm:text-[11px] font-medium text-gray-400 uppercase tracking-widest mb-1">
-                              {product.category}
-                            </p>
-                            <h4 className="text-xs sm:text-sm font-medium text-gray-900 mb-2 line-clamp-1">
-                              {product.name}
-                            </h4>
-
-                            {/* Pricing: Gold $14.00, Gray strikethrough $35.00 */}
-                            <div className="flex items-center justify-center gap-2 mb-3">
-                              <span className="text-xs sm:text-sm font-bold text-[#E59819]">
-                                ${product.price.toFixed(2)}
-                              </span>
-                              {product.originalPrice && (
-                                <span className="text-[10px] sm:text-xs text-gray-400 line-through">
-                                  ${product.originalPrice.toFixed(2)}
-                                </span>
-                              )}
-                            </div>
+                            {/* Heart Wishlist Toggle Button */}
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                onToggleWishlist && onToggleWishlist(product);
+                              }}
+                              className="absolute bottom-2.5 right-2.5 z-10 p-1.5 rounded-full bg-white/90 hover:bg-white shadow-xs text-gray-400 hover:text-rose-500 transition-colors"
+                              title={wishlistIds.includes(product.id) ? "Remove from wishlist" : "Add to wishlist"}
+                            >
+                              <Heart className={`w-3.5 h-3.5 ${wishlistIds.includes(product.id) ? 'fill-rose-500 text-rose-500' : ''}`} />
+                            </button>
                           </div>
 
-                          {/* Add to card button matching exact spelling and style */}
-                          <button
-                            onClick={(e) => handleAdd(product, e)}
-                            className={`w-full py-2.5 px-3 font-semibold text-xs transition-colors rounded-none uppercase ${
-                              isAdded
+                          {/* Product Info with subtle pale gray background matching screenshot */}
+                          <div className="bg-[#F5F8F9] p-3 sm:p-3.5 text-center border-t border-gray-100 flex-1 flex flex-col justify-between">
+                            <div>
+                              <p className="text-[10px] sm:text-[11px] font-medium text-gray-400 uppercase tracking-widest mb-1">
+                                {product.category}
+                              </p>
+                              <h4 className="text-xs sm:text-sm font-medium text-gray-900 mb-2 line-clamp-1">
+                                {product.name}
+                              </h4>
+
+                              {/* Pricing: Gold $14.00, Gray strikethrough $35.00 */}
+                              <div className="flex items-center justify-center gap-2 mb-3">
+                                <span className="text-xs sm:text-sm font-bold text-[#E59819]">
+                                  ${product.price.toFixed(2)}
+                                </span>
+                                {product.originalPrice && (
+                                  <span className="text-[10px] sm:text-xs text-gray-400 line-through">
+                                    ${product.originalPrice.toFixed(2)}
+                                  </span>
+                                )}
+                              </div>
+                            </div>
+
+                            {/* Add to card button matching exact spelling and style */}
+                            <button
+                              onClick={(e) => handleAdd(product, e)}
+                              className={`w-full py-2 px-3 font-semibold text-xs transition-colors rounded-none uppercase ${
+                                isAdded
                                 ? 'bg-emerald-600 text-white'
                                 : 'bg-[#511B57] hover:bg-[#3D1442] text-white'
-                            }`}
-                          >
-                            {isAdded ? 'Added!' : 'Add to card'}
-                          </button>
+                              }`}
+                            >
+                              {isAdded ? 'Added!' : 'Add to card'}
+                            </button>
+                          </div>
                         </div>
-                      </div>
-                    );
-                  })}
+                      );
+                    })}
+                  </div>
                 </div>
 
                 {/* Carousel bottom indicator: small black pill and gray dot centered */}
